@@ -1,0 +1,29 @@
+<div class="modal-body">
+	<button class="bg_tr color_dark tr_all_hover text_cs_hover close f_size_large" ng-click="login.close()"><i class="fa fa-times"></i></button>
+	<h3 class="m_bottom_20 color_dark">Entrar</h3>
+	<form>
+		<ul>
+			<li class="m_bottom_15">
+				<label for="username" class="m_bottom_5 d_inline_b">Usuário</label><br>
+				<input type="text" name="" id="username" class="r_corners full_width" ng-model="login.user">
+			</li>
+			<li class="m_bottom_25">
+				<label for="password" class="m_bottom_5 d_inline_b">Senha</label><br>
+				<input type="password" name="" id="password" class="r_corners full_width" ng-model="login.password">
+			</li>
+			<li class="m_bottom_15">
+				<p class="f_right color_red" ng-if="login.error">Usuário e/ou Senha incorreta!</p>
+			</li>
+			<li class="clearfix m_bottom_30">
+
+			</li>
+		</ul>
+	</form>
+	<footer class="t_mxs_align_c overflow_auto">
+		<button class="button_type_4 tr_all_hover r_corners f_left bg_scheme_color color_light f_mxs_none m_mxs_bottom_15" ng-click="login.login()" style="float: right">Entrar</button>
+<!-- =======
+		<h3 class="color_dark d_inline_middle d_mxs_block m_mxs_bottom_15">Novo Usuário?</h3>
+		<a ui-sref="cadastro" role="button" class="tr_all_hover r_corners button_type_4 bg_dark_color bg_cs_hover color_light d_inline_middle m_mxs_left_0 f_right">Crie uma Conta!</a>
+>>>>>>> login -->
+	</footer>
+</div>

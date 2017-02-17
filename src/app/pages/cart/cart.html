@@ -1,0 +1,84 @@
+
+<!--wide layout-->
+<div class="wide_layout relative">
+	<!--[if (lt IE 9) | IE 9]>
+		<div style="background:#fff;padding:8px 0 10px;">
+		<div class="container" style="width:1170px;"><div class="row wrapper"><div class="clearfix" style="padding:9px 0 0;float:left;width:83%;"><i class="fa fa-exclamation-triangle scheme_color f_left m_right_10" style="font-size:25px;color:#e74c3c;"></i><b style="color:#e74c3c;">Attention! This page may not display correctly.</b> <b>You are using an outdated version of Internet Explorer. For a faster, safer browsing experience.</b></div><div class="t_align_r" style="float:left;width:16%;"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode" class="button_type_4 r_corners bg_scheme_color color_light d_inline_b t_align_c" target="_blank" style="margin-bottom:2px;">Update Now!</a></div></div></div></div>
+	<![endif]-->
+	<!--markup header-->
+  <div ng-include="'navbar.html'"></div>
+	<!--content-->
+	<div class="page_content_offset">
+		<div class="container">
+			<div class="row clearfix">
+				<!--left content column-->
+				<section class="col-lg-12 col-md-12 col-sm-12 m_xs_bottom_30">
+					<h2 class="tt_uppercase color_dark m_bottom_25">Cart</h2>
+					<!--cart table-->
+
+					<table class="table_type_6 responsive_table full_width r_corners wraper shadow t_align_l t_xs_align_c m_bottom_30">
+						<thead>
+							<tr class="f_size_large">
+								<!--titles for td-->
+								<th>Produto</th>
+								<th>Nome</th>
+								<th>Descrição</th>
+                <th>Tamanho</th>
+                <th>Marca</th>
+								<th>Quantidade</th>
+								<th>Subtotal</th>
+							</tr>
+						</thead>
+						<tbody>
+              <tr ng-repeat="item in cart.products" cart-item item="item" index="$index" remove-item="cart.removeItem(index)" update-qtd="cart.updateQtd(index, qtd)"></tr>
+							<!--prices-->
+							<tr>
+								<td colspan="6">
+									<p class="fw_medium f_size_large t_align_r t_xs_align_c">Subtotal:</p>
+								</td>
+								<td colspan="1">
+									<p class="fw_medium f_size_large color_dark">R${{cart.subtotal}}</p>
+								</td>
+							</tr>
+              <tr>
+								<td colspan="6">
+									<p class="fw_medium f_size_large t_align_r t_xs_align_c"><span ng-if="cart.frete.isFree">Frete Grátis:</span><span ng-if="!cart.frete.isFree">Frete:</span></p>
+								</td>
+								<td colspan="1">
+									<p class="fw_medium f_size_large color_dark">R$ {{cart.frete.price}}</p>
+								</td>
+							</tr>
+              <tr>
+								<td colspan="6">
+									<p class="fw_medium f_size_large t_align_r t_xs_align_c"><span ng-if="!cart.promocao">Não Há </span>Promoção <span ng-if="cart.promocao"> de {{cart.promocao}}%</span>: </p>
+								</td>
+								<td colspan="1">
+									<p class="fw_medium f_size_large color_dark">- R${{cart.total*cart.promocao/100 || 0}}</p>
+								</td>
+							</tr>
+
+
+							<!--total-->
+							<tr>
+								<td colspan="6" class="v_align_m d_ib_offset_large t_xs_align_l">
+									<p class="fw_medium f_size_large t_align_r t_xs_align_c scheme_color ">Total:</p>
+								</td>
+								<td colspan="1" class="v_align_m">
+									<p class="fw_medium f_size_large scheme_color m_xs_bottom_10">R${{cart.total}}</p>
+								</td>
+							</tr>
+              <tr>
+                <td colspan="7">
+                  <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ui-sref="checkout">Confirmar Compra</button>
+                </td>
+              </tr>
+						</tbody>
+					</table>
+	       </section>
+				<!--right column-->
+			</div>
+		</div>
+	</div>
+	<!--markup footer-->
+  <div ng-include="'footer.html'"></div>
+</div>

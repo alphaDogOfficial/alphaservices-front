@@ -1,0 +1,113 @@
+<header role="banner" ng-controller="navbarCtrl as nav">
+  <!--header top part-->
+  <section class="h_top_part">
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-lg-4 col-md-4 col-sm-3 t_xs_align_c">
+          <p class="f_size_small" ng-if="!nav.isLogged">Bem vindo visitante, você pode	<a href="#" ng-click="nav.openLogin()">Entrar</a> ou <a ng-click="nav.openSignup()" href="#">Criar uma Conta</a> </p>
+          <p class="f_size_small" ng-if="nav.isLogged">Bem vindo <strong>{{nav.nome}}</strong>, deseja	<a href="#" ng-click="nav.logout()">Sair?</a> </p>
+        </div>
+        <nav class="col-lg-4 col-md-4 col-sm-6 t_align_c t_xs_align_c">
+          <ul class="d_inline_b horizontal_list clearfix f_size_small users_nav">
+            <li><a ng-click="nav.goToMyAcc()" href="#" class="default_t_color">Minha Conta</a></li>
+            <li><a href="/carrinho" class="default_t_color">Carrinho</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+  <!--header bottom part-->
+  <section class="h_bot_part container">
+    <div class="clearfix row">
+      <div class="col-lg-6 col-md-6 col-sm-4 t_xs_align_c">
+        <a href="index.html" class="m_xs_bottom_15 d_xs_inline_b">
+          <img src="../../../public/images/logo_mais_fudidao.png" alt="" width="60">
+        </a>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-8">
+        <div class="row clearfix">
+          <div class="col-lg-6 col-md-6 col-sm-6 t_align_r t_xs_align_c m_xs_bottom_15">
+            <dl class="l_height_medium">
+              <dt class="f_size_small">Ligue-nos</dt>
+              <dd class="f_size_ex_large color_dark"><b>(11) 99613-5335</b></dd>
+            </dl>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <form class="relative type_2" role="search">
+              <input type="text" placeholder="Buscar" name="search" class="r_corners f_size_medium full_width" ng-model="nav.searchName">
+              <button class="f_right search_button tr_all_hover f_xs_none" ng-click="nav.search()">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--main menu container-->
+  <div class="container">
+    <section class="menu_wrap type_2 relative clearfix t_xs_align_c m_bottom_20">
+      <!--button for responsive menu-->
+      <button id="menu_button" class="r_corners centered_db d_none tr_all_hover d_xs_block m_bottom_15">
+        <span class="centered_db r_corners"></span>
+        <span class="centered_db r_corners"></span>
+        <span class="centered_db r_corners"></span>
+      </button>
+      <!--main menu-->
+      <nav role="navigation" class="f_left f_xs_none d_xs_none t_xs_align_l">
+        <ul class="horizontal_list main_menu clearfix">
+          <li class="current relative f_xs_none m_xs_bottom_5"><a ui-sref="home" class="tr_delay_hover color_light tt_uppercase" ng-click="nav.search()" ><b>Início</b></a>
+          </li>
+          <li class="relative f_xs_none m_xs_bottom_5"><a ng-click="nav.search()" ui-sref="home" class="tr_delay_hover color_light tt_uppercase"><b>Loja</b></a>
+            <!--sub menu-->
+            <div class="sub_menu_wrap top_arrow d_xs_none tr_all_hover clearfix r_corners w_xs_auto">
+              <div class="f_left f_xs_none">
+                <b class="color_dark m_left_20 m_bottom_5 m_top_5 d_inline_b">Homens</b>
+                <ul class="sub_menu first">
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(0,"Casual")>Casual</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(0,"Chuteira")>Chuteira</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(0,"Corrida")>Corrida</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(0,"Social")>Social</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(0,"Skate")>Skate</a></li>
+                </ul>
+              </div>
+              <div class="f_left m_left_10 m_xs_left_0 f_xs_none">
+                <b class="color_dark m_left_20 m_bottom_5 m_top_5 d_inline_b">Mulheres</b>
+                <ul class="sub_menu">
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(1,"Casual")>Casual</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(1,"Chuteira")>Chuteira</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(1,"Corrida")>Corrida</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(1,"Social")>Social</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(1,"Skate")>Skate</a></li>
+                </ul>
+              </div>
+              <div class="f_left m_left_10 m_xs_left_0 f_xs_none">
+                <b class="color_dark m_left_20 m_bottom_5 m_top_5 d_inline_b">Crianças</b>
+                <ul class="sub_menu">
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(2,"Casual")>Casual</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(2,"Chuteira")>Chuteira</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(2,"Corrida")>Corrida</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(2,"Social")>Social</a></li>
+                  <li><a class="color_dark tr_delay_hover" href="#" ng-click=nav.filter(2,"Skate")>Skate</a></li>
+                </ul>
+              </div>
+              <img src="../../../public/images/logo_mais_fudidao.png" width="210" class="d_sm_none f_right m_bottom_10" alt="">
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <ul class="f_right horizontal_list clearfix t_align_l t_xs_align_c site_settings d_xs_inline_b f_xs_none">
+        <!--shopping cart-->
+        <li class="m_left_5 relative container3d" id="shopping_button">
+          <a role="button" ui-sref='carrinho' class="button_type_3 color_light bg_scheme_color d_block r_corners tr_delay_hover box_s_none">
+            <span class="d_inline_middle shop_icon" style="margin: 0px">
+              <i class="fa fa-shopping-cart"></i>
+            </span>
+          </a>
+          <!-- TODO: iw would be nice to have this -->
+          <!-- <div ng-include="'cart-recently.html'"></div> -->
+        </li>
+      </ul>
+    </section>
+  </div>
+</header>

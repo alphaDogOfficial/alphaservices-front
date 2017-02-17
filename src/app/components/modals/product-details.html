@@ -1,0 +1,83 @@
+<div class="modal-body">
+	<div class="clearfix">
+		<div class="custom_scrollbar">
+			<!--left popup column-->
+			<div class="f_left half_column">
+				<div class="relative d_inline_b m_bottom_10 qv_preview">
+					<img ng-src="{{data.imagem}}" class="tr_all_hover" alt="" width="360">
+				</div>
+				<div class="d_inline_middle m_left_5">
+					<!-- AddThis Button BEGIN -->
+					<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+					<a class="addthis_button_preferred_1"></a>
+					<a class="addthis_button_preferred_2"></a>
+					<a class="addthis_button_preferred_3"></a>
+					<a class="addthis_button_preferred_4"></a>
+					<a class="addthis_button_compact"></a>
+					<a class="addthis_counter addthis_bubble_style"></a>
+					</div>
+					<!-- AddThis Button END -->
+				</div>
+			</div>
+			<!--right popup column-->
+			<div class="f_right half_column">
+				<!--description-->
+				<h2 class="m_bottom_10"><a href="#" class="color_dark fw_medium">{{data.nome}}</a></h2>
+				<hr class="m_bottom_10 divider_type_3">
+				<table class="description_table m_bottom_10">
+					<tr>
+						<td>Fabricante:</td>
+						<td><a href="#" class="color_dark">{{data.fabricante}}</a></td>
+					</tr>
+					<tr>
+						<td>Disponibilidade:</td>
+						<td><span ng-class="{color_green: emEstoque, color_red: semEstoque}">{{data.estoque}}</span> <span ng-if="emEstoque">{{data.quantidade}}</span></td>
+					</tr>
+					<tr>
+						<td>Código do Produto:</td>
+						<td>{{data.idproduto}}</td>
+					</tr>
+				</table>
+				<table class="description_table m_bottom_5">
+					<tr>
+						<td>Peso do produto:</td>
+						<td>{{data.peso}} kg</td>
+					</tr>
+				</table>
+				<hr class="divider_type_3 m_bottom_10">
+				<p class="m_bottom_10">{{data.descricao}}</p>
+				<hr class="divider_type_3 m_bottom_15">
+				<div class="m_bottom_15">
+					<span class="v_align_b f_size_big m_left_5 scheme_color fw_medium">R${{data.valor}}.00</span>
+				</div>
+				<table class="description_table type_2 m_bottom_15">
+					<tr>
+						<td class="v_align_m">Tamanhos Disponíveis:</td>
+						<td class="v_align_m">
+							<div class="custom_select f_size_medium relative d_inline_middle">
+								<div class="select_title r_corners relative color_dark">{{tamanhosDisponiveis[0]}}</div>
+								<ul class="select_list d_none"></ul>
+								<select name="product_name" id="cart_tamanho">
+									<option ng-repeat="tamanho in tamanhosDisponiveis">{{tamanho}}</option>
+								</select>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="v_align_m">Quantidade:</td>
+						<td class="v_align_m">
+							<div class="clearfix quantity r_corners d_inline_middle f_size_medium color_dark">
+								<button class="bg_tr d_block f_left" ng-click="updateQtd(-1)">-</button>
+								<input type="text" name="" ng-model="cart_quantidade" class="f_left">
+								<button class="bg_tr d_block f_left" ng-click="updateQtd(1)">+</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<div class="clearfix m_bottom_15">
+					<button class="button_type_12 r_corners bg_scheme_color color_light tr_delay_hover f_left f_size_large" ng-click="putInCart()">Àdicionar ao Carrinho</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

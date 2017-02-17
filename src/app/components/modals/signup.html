@@ -1,0 +1,42 @@
+<div class="modal-body">
+	<button class="bg_tr color_dark tr_all_hover text_cs_hover close f_size_large" ng-click="signup.close()"><i class="fa fa-times"></i></button>
+	<h3 class="m_bottom_20 color_dark">Cadastrar</h3>
+	<form>
+		<ul>
+			<li class="m_bottom_15">
+				<label for="username" class="m_bottom_5 d_inline_b">Nome</label><br>
+				<input type="text" name="" id="name" class="r_corners full_width" ng-model="signup.name">
+				<p class="f_right color_red" ng-if="signup.nameError">Este campo é obrigatório</p>
+			</li>
+			<li class="m_bottom_15">
+				<label for="cpf" class="m_bottom_5 d_inline_b">CPF</label><br>
+				<input type="number" max="99999999999" name="" id="cpf" class="r_corners full_width" ng-model="signup.cpf">
+				<p class="f_right color_red" ng-if="signup.cpfError">CPF inválido</p>
+			</li>
+			<li class="m_bottom_15">
+				<label for="email" class="m_bottom_5 d_inline_b">E-mail</label><br>
+				<input type="email" name="" id="email" class="r_corners full_width" ng-model="signup.email">
+				<p class="f_right color_red" ng-if="signup.emailError">E-mail inválido</p>
+			</li>
+			<li class="m_bottom_15">
+				<label for="telephone" class="m_bottom_5 d_inline_b">Telefone</label><br>
+				<input type="text" name="" id="telephone" class="r_corners full_width" ng-model="signup.tel">
+				<p class="f_right color_red" ng-if="signup.telError">Telefone inválido</p>
+			</li>
+			<li class="m_bottom_15">
+				<label for="username" class="m_bottom_5 d_inline_b">Login</label><br>
+				<input type="text" name="" id="username" class="r_corners full_width" ng-model="signup.user">
+				<p class="f_right color_red" ng-if="signup.loginError">Login inválido</p>
+			</li>
+			<li class="m_bottom_25">
+				<label for="password" class="m_bottom_5 d_inline_b">Senha</label><br>
+				<input type="password" name="" id="password" class="r_corners full_width" ng-model="signup.password">
+				<p class="f_right color_red" ng-if="signup.passError">A senha deve ter no mínimo 4 caracteres</p>
+			</li>
+		</ul>
+	</form>
+	<footer class="t_mxs_align_c overflow_auto">
+		<p class="f_left color_red" ng-if="signup.unexError">Erro inesperado</p>
+		<button class="button_type_4 tr_all_hover r_corners f_right bg_scheme_color color_light f_mxs_none m_mxs_bottom_15" ng-click="signup.signup()">Criar</button>
+	</footer>
+</div>

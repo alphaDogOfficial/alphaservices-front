@@ -1,0 +1,135 @@
+
+<!--wide layout-->
+<div class="wide_layout relative">
+	<!--[if (lt IE 9) | IE 9]>
+		<div style="background:#fff;padding:8px 0 10px;">
+		<div class="container" style="width:1170px;"><div class="row wrapper"><div class="clearfix" style="padding:9px 0 0;float:left;width:83%;"><i class="fa fa-exclamation-triangle scheme_color f_left m_right_10" style="font-size:25px;color:#e74c3c;"></i><b style="color:#e74c3c;">Attention! This page may not display correctly.</b> <b>You are using an outdated version of Internet Explorer. For a faster, safer browsing experience.</b></div><div class="t_align_r" style="float:left;width:16%;"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode" class="button_type_4 r_corners bg_scheme_color color_light d_inline_b t_align_c" target="_blank" style="margin-bottom:2px;">Update Now!</a></div></div></div></div>
+	<![endif]-->
+	<!--markup header-->
+  <div ng-include="'navbar.html'"></div>
+	<!--content-->
+	<div class="page_content_offset">
+		<div class="container">
+			<div class="row clearfix">
+				<!--left content column-->
+				<section class="col-lg-12 col-md-12 col-sm-12 m_xs_bottom_30">
+					<h2 class="tt_uppercase color_dark m_bottom_25">Bem Vindo {{accVm.user.nome}}</h2>
+          <div class="bs_inner_offsets bg_light_color_3 shadow r_corners m_bottom_45">
+            <div class="row clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <h5 class="fw_medium m_bottom_15">Meus dados</h5>
+                <form>
+                  <ul>
+                    <li class="m_bottom_15">
+                      <label for="c_name_2" class="d_inline_b m_bottom_5">Nome</label>
+                      <input type="text" name="nome" ng-model="accVm.user.nome" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="a_name_1" class="d_inline_b m_bottom_5">CPF</label>
+                      <input type="text"  name="cpf" ng-model="accVm.user.cpf" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="f_name_2" class="d_inline_b m_bottom_5">Telefone</label>
+                      <input type="text" name="telefone" ng-model="accVm.user.telefone" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">Email</label>
+                      <input type="text" name="email" ng-model="accVm.user.email" class="r_corners full_width">
+                    </li>
+                  </ul>
+                </form>
+                <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-click="accVm.saveUserData()">Salvar</button>
+              </div>
+            </div>
+
+            <div class="row clearfix">
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <h5 class="fw_medium m_bottom_15">Novo Endereço</h5>
+                <form>
+                  <ul>
+                    <li class="m_bottom_15">
+                      <label for="c_name_2" class="d_inline_b m_bottom_5">Nome</label>
+                      <input type="text" name="novoEndNome" ng-model="accVm.novoEnd.nome" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="a_name_1" class="d_inline_b m_bottom_5">Rua</label>
+                      <input type="text"  name="rua" ng-model="accVm.novoEnd.rua" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="f_name_2" class="d_inline_b m_bottom_5">numero</label>
+                      <input type="text" name="numero" ng-model="accVm.novoEnd.numero" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">Bairro</label>
+                      <input type="text" name="bairro" ng-model="accVm.novoEnd.bairro" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">Cidade</label>
+                      <input type="text" name="cidade" ng-model="accVm.novoEnd.cidade" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">Estado</label>
+                      <input type="text" name="estado" ng-model="accVm.novoEnd.estado" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">País</label>
+                      <input type="text" name="pais" ng-model="accVm.novoEnd.pais" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">CEP</label>
+                      <input type="text" name="cep" ng-model="accVm.novoEnd.cep" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">Complemento</label>
+                      <input type="text" name="complemento" ng-model="accVm.novoEnd.complemento" class="r_corners full_width">
+                    </li>
+                  </ul>
+                </form>
+                <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-click="accVm.SalvarNovoEnd()">Salvar</button>
+              </div>
+
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <h5 class="fw_medium m_bottom_15"> Endereços cadastrados: </h5>
+                <div ng-repeat="end in accVm.enderecos">
+                  <p> <strong>{{end.nome}}</strong> </p>
+                  <p>
+                    {{end.rua}}
+                  </p>
+                </br>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="bs_inner_offsets bg_light_color_3 shadow r_corners m_bottom_45">
+            <div class="row clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <h5 class="fw_medium m_bottom_15">Minhas compras</h5>
+                  <div ng-repeat="compra in accVm.compras">
+                    <p>
+                      <strong>Compra{{compra[0].idcompra}}</strong>
+                    </p>
+                    <p ng-if="compra[0].estado == 0" style="color: red">
+                      Ainda não entregue!
+                    </p>
+                    <p ng-if="compra[0].estado == 1" style="color: green">
+                      Produto entregue aos correios
+                    </p>
+                    <p>
+                      Valor Total : <strong>{{compra[0].valor}}</strong>
+                    </p>
+                  
+                  </div>
+              </div>
+            </div>
+          </div>
+
+	       </section>
+				<!--right column-->
+			</div>
+		</div>
+	</div>
+	<!--markup footer-->
+  <div ng-include="'footer.html'"></div>
+</div>

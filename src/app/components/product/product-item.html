@@ -1,0 +1,22 @@
+<div class="product_item hit w_xs_full">
+  <figure class="r_corners photoframe type_2 t_align_c tr_all_hover shadow relative">
+    <!--product preview-->
+    <a href="#" class="d_block relative pp_wrap m_bottom_15">
+      <!--hot product-->
+      <img ng-src="{{data.imagem}}" class="tr_all_hover" alt="">
+      <span role="button" class="button_type_5 box_s_none color_light r_corners tr_all_hover d_xs_none" ng-click="open(data)">Detalhes</span>
+    </a>
+    <!--description and price of product-->
+    <figcaption>
+      <h5 class="m_bottom_10"><a href="#" class="color_dark">{{data.nome}}</a></h5>
+      <p class="scheme_color f_size_large m_bottom_15">R${{data.valor}}.00</p>
+      <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0 m_bottom_15" ng-click="putInCart()">Adicionar ao Carrinho</button>
+      <!-- <div class="clearfix m_bottom_5">
+        <ul class="horizontal_list d_inline_b l_width_divider">
+          <li class="m_right_15 f_md_none m_md_right_0"><a href="#" class="color_dark">Add to Wishlist</a></li>
+          <li class="f_md_none"><a href="#" class="color_dark">Add to Compare</a></li>
+        </ul>
+      </div> -->
+    </figcaption>
+  </figure>
+</div>

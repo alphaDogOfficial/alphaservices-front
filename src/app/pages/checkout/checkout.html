@@ -1,0 +1,151 @@
+
+<!--wide layout-->
+<div class="wide_layout relative">
+	<!--[if (lt IE 9) | IE 9]>
+		<div style="background:#fff;padding:8px 0 10px;">
+		<div class="container" style="width:1170px;"><div class="row wrapper"><div class="clearfix" style="padding:9px 0 0;float:left;width:83%;"><i class="fa fa-exclamation-triangle scheme_color f_left m_right_10" style="font-size:25px;color:#e74c3c;"></i><b style="color:#e74c3c;">Attention! This page may not display correctly.</b> <b>You are using an outdated version of Internet Explorer. For a faster, safer browsing experience.</b></div><div class="t_align_r" style="float:left;width:16%;"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode" class="button_type_4 r_corners bg_scheme_color color_light d_inline_b t_align_c" target="_blank" style="margin-bottom:2px;">Update Now!</a></div></div></div></div>
+	<![endif]-->
+	<!--markup header-->
+  <div ng-include="'navbar.html'"></div>
+	<!--content-->
+	<div class="page_content_offset">
+		<div class="container">
+			<div class="row clearfix">
+				<!--left content column-->
+				<section class="col-lg-12 col-md-12 col-sm-12 m_xs_bottom_30">
+					<h2 class="tt_uppercase color_dark m_bottom_25">Endereço</h2>
+          <div class="bs_inner_offsets bg_light_color_3 shadow r_corners m_bottom_45">
+            <div class="row clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <h5 class="fw_medium m_bottom_15">Enviar para</h5>
+                <form>
+                  <ul>
+                    <li class="m_bottom_5" ng-repeat="end in coVm.enderecos">
+                      <input type="radio" class="d_none" name="endereco" id="end_{{$index}}" ><label for="end_{{$index}}" ng-click="coVm.radioSelected($index)">{{end.nome}}</label>
+                    </li>
+                  </ul>
+                </form>
+                <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ui-sref="minha-conta">Novo Endereço</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="bs_inner_offsets bg_light_color_3 shadow r_corners m_bottom_45" ng-if="coVm.showAddress">
+            <div class="row clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <h5 class="fw_medium m_bottom_15">Endereço</h5>
+                <form>
+                  <ul>
+                    <li class="m_bottom_15">
+                      <label for="a_name_1" class="d_inline_b m_bottom_5">Rua</label>
+                      <input disabled type="text"  name="rua" ng-model="coVm.endereco.rua" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="f_name_2" class="d_inline_b m_bottom_5">Número</label>
+                      <input disabled type="text" name="numero" ng-model="coVm.endereco.numero" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">Bairro</label>
+                      <input disabled type="text" name="bairro" ng-model="coVm.endereco.bairro" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">Cidade</label>
+                      <input disabled type="text" name="cidade" ng-model="coVm.endereco.cidade" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">Estado</label>
+                      <input disabled type="text" name="estado" ng-model="coVm.endereco.estado" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">País</label>
+                      <input disabled type="text" name="pais" ng-model="coVm.endereco.pais" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">CEP</label>
+                      <input disabled type="text" name="cep" ng-model="coVm.endereco.cep" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="m_name_2" class="d_inline_b m_bottom_5">Complemento</label>
+                      <input disabled type="text" name="complemento" ng-model="coVm.endereco.complemento" class="r_corners full_width">
+                    </li>
+                  </ul>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+          <h2 class="tt_uppercase color_dark m_bottom_30">Opções de entrega</h2>
+          <div class="bs_inner_offsets bg_light_color_3 shadow r_corners m_bottom_45">
+              <input id="entrega_normal" type="radio" checked name="radio_1" class="d_none" value="0">
+              <label for="entrega_normal"></label>
+              <!-- <img src="../../../public/images/shipment_logo.jpg" alt="" class="f_left m_right_20 f_mxs_none m_mxs_bottom_10"> -->
+              <figcaption>
+                <h5 class="color_dark fw_medium m_bottom_15 m_sm_bottom_5">Entrega Normal</h5>
+                <p>Tempo de entrega entre 5 a 15 dias úteis.</p>
+              </figcaption>
+
+            <hr class="m_bottom_20">
+              <input id="entrega_parcial" type="radio" name="radio_1" class="d_none" value="1">
+              <label for="entrega_parcial"></label>
+              <!-- <img src="../../../public/images/shipment_logo.jpg" alt="" class="f_left m_right_20 f_mxs_none m_mxs_bottom_10"> -->
+              <figcaption>
+                <h5 class="color_dark fw_medium m_bottom_15 m_sm_bottom_5">Entrega Parcial</h5>
+                <p>Na entrega parcial, iremos entregar agora os produtos em estoque, e os fora de estoque irão ser entregues assim que possíveis, sem custo a mais de frete</p>
+              </figcaption>
+          </div>
+          <h2 class="tt_uppercase color_dark m_bottom_30">Pagamento</h2>
+          <div class="bs_inner_offsets bg_light_color_3 shadow r_corners m_bottom_45">
+              <input id="boleto" type="radio" checked name="radio_2" class="d_none" ng-model="coVm.payment" value="boleto" ng-click="coVm.cartaoNotSelected()">
+              <label for="boleto"></label>
+              <figcaption class="d_table d_sm_block">
+                <div class="d_table_cell d_sm_block p_sm_right_0 p_right_45 m_mxs_bottom_5">
+                  <h5 class="color_dark fw_medium m_bottom_15 m_sm_bottom_5">Boleto</h5>
+                  <p>Pagamento via Boleto Bancário</p>
+                </div>
+              </figcaption>
+            <hr class="m_bottom_20">
+              <input id="cartao" type="radio" name="radio_2" class="d_none" ng-model="coVm.payment" value="cartao" ng-click="coVm.cartaoSelected()">
+              <label for="cartao"></label>
+              <figcaption>
+                <h5 class="color_dark fw_medium m_bottom_15 m_sm_bottom_5">Cartão de Crédito</h5>
+                <p>Pagamento via Cartão de Crédito</p>
+              </figcaption>
+          </div>
+          <div class="bs_inner_offsets bg_light_color_3 shadow r_corners m_bottom_45" ng-if="coVm.showCartao">
+            <div class="row clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <h5 class="fw_medium m_bottom_15">Dados do Cartão</h5>
+                <form>
+                  <ul>
+                    <li class="m_bottom_15">
+                      <label for="cartaoNome" class="d_inline_b m_bottom_5">Nome do Portador</label>
+                      <input type="text" name="cartaoNome" ng-model="coVm.cartao.nome" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="numCartao" class="d_inline_b m_bottom_5">Número do Cartão</label>
+                      <input type="number" min="1000000000000000" max="9999999999999999" name="numCartao" ng-model="coVm.cartao.numero" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="cartaoCVV" class="d_inline_b m_bottom_5">CVV</label>
+                      <input type="number" max="9999" name="cartaoCVV" ng-model="coVm.cartao.cvv" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="dataCartao" class="d_inline_b m_bottom_5">Data de Validade</label>
+                      <input type="month" name="dataCartao" ng-model="coVm.cartai.data" class="r_corners full_width">
+                    </li>
+                  </ul>
+                </form>
+              </div>
+            </div>
+
+          </div>
+          <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-click="coVm.fecharCompra()">Finalizar Compra</button>
+	       </section>
+				<!--right column-->
+			</div>
+		</div>
+	</div>
+	<!--markup footer-->
+  <div ng-include="'footer.html'"></div>
+</div>
