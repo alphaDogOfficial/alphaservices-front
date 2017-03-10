@@ -15,6 +15,8 @@ import login from './pages/login/login.controller';
 import cadastro from './pages/cadastro';
 import auth from './authentication';
 import navbarCtrl from './components/navbar/navbar.controller';
+import reviews from './pages/reviews'
+import myReviews from './pages/reviews-my'
 
 import promocao from './factories/promocao';
 import prodConstants from './factories/prodConstants';
@@ -30,7 +32,7 @@ function initAnonyCart($localStorage) {
 
 const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [uirouter, modal, ngStorage, home, cart, login, auth, promocao, prodConstants, checkout, myAcc, cadastro])
+angular.module(MODULE_NAME, [uirouter, modal, ngStorage, home, cart, login, auth, promocao, prodConstants, checkout, myAcc, cadastro, reviews, myReviews])
   .config(routing)
   .controller('initAnonyCart', initAnonyCart)
   .controller('navbarCtrl', navbarCtrl);

@@ -4362,3 +4362,7 @@ only screen and (min-resolution: 144 dpi){
 .product-item {
 	margin-bottom: 15px;
 }
+
+.width350 {
+	width: 350px;
+}

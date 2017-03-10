@@ -1,6 +1,8 @@
 var smoothScroll = require('smoothscroll');
 var homeController = function ($rootScope, crudService, $window) {
   var vm = this;
+  $rootScope.isHomeActive = true;
+  $rootScope.isReviewsActive = false;
 
   crudService.get('produto')
 	.then(function(response){
