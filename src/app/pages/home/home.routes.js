@@ -16,6 +16,14 @@ export default function routes($stateProvider) {
       templateUrl: 'home.html',
       controller: 'homeController',
       controllerAs: 'vm'
+    })
+    .state('home.provider', {
+      url: '/provider',
+      templateUrl: 'home.html',
+      controller: 'homeController',
+      controllerAs: 'vm',
+      params:{
+      	type: ''
+      }
     });
-
 }

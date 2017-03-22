@@ -3,13 +3,13 @@
     <!--product preview-->
     <a href="#" class="d_block relative pp_wrap m_bottom_15">
       <!--hot product-->
-      <img ng-src="{{data.imagem}}" class="tr_all_hover" alt="">
+      <img ng-src="{{data.imagem}}" class="tr_all_hover" alt="" height="200px" width="300px">
       <span role="button" class="button_type_5 box_s_none color_light r_corners tr_all_hover d_xs_none" ng-click="open(data)">Detalhes</span>
     </a>
     <!--description and price of product-->
     <figcaption>
       <h5 class="m_bottom_10"><a href="#" class="color_dark">{{data.nome}}</a></h5>
-      <p class="scheme_color f_size_large m_bottom_15">R${{data.valor}}.00</p>
+      <!-- <p class="scheme_color f_size_large m_bottom_15">R${{data.valor}}.00</p> -->
       <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0 m_bottom_15" ng-click="putInCart()">Pedir Orçamento</button>
       <!-- <div class="clearfix m_bottom_5">
         <ul class="horizontal_list d_inline_b l_width_divider">

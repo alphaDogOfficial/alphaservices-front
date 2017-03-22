@@ -26,31 +26,40 @@
 				<hr class="m_bottom_10 divider_type_3">
 				<table class="description_table m_bottom_10">
 					<tr>
-						<td>Fabricante:</td>
-						<td><a href="#" class="color_dark">{{data.fabricante}}</a></td>
+						<td><b>Descrição:</b> </td>
+						<td><a href="#" class="color_dark">{{data.descricao}}</a></td>
+
 					</tr>
 					<tr>
-						<td>Disponibilidade:</td>
-						<td><span ng-class="{color_green: emEstoque, color_red: semEstoque}">{{data.estoque}}</span> <span ng-if="emEstoque">{{data.quantidade}}</span></td>
+						<td><td><p class="m_bottom_10">Peça agora um orçamento!</p></td></td>
+					</tr>
+					<!-- <tr>
+						<td>Prestador:</td>
+						<td><a href="#" class="color_dark">João da Silva</a></td>
 					</tr>
 					<tr>
-						<td>Código do Produto:</td>
-						<td>{{data.idproduto}}</td>
+						<td>Avaliação do prestador: </td>
+						<td><span ng-class="{color_green: emEstoque, color_red: semEstoque}">5/5</span> <span ng-if="emEstoque">{{data.quantidade}}</span></td>
 					</tr>
+					<tr>
+						<td>Número de serviços realizados:&nbsp;</td>
+						<td>133</td>
+					</tr>
+				
+					<tr>
+						<td><b>Localização do prestador:&nbsp;</b></td>
+						<td>São Paulo</td>
+					</tr> -->
+
+					
 				</table>
-				<table class="description_table m_bottom_5">
-					<tr>
-						<td>Peso do produto:</td>
-						<td>{{data.peso}} kg</td>
-					</tr>
-				</table>
-				<hr class="divider_type_3 m_bottom_10">
-				<p class="m_bottom_10">{{data.descricao}}</p>
+				<!-- <hr class="divider_type_3 m_bottom_10"> -->
+				
 				<hr class="divider_type_3 m_bottom_15">
-				<div class="m_bottom_15">
+				<!-- <div class="m_bottom_15">
 					<span class="v_align_b f_size_big m_left_5 scheme_color fw_medium">R${{data.valor}}.00</span>
-				</div>
-				<table class="description_table type_2 m_bottom_15">
+				</div> -->
+				<!-- <table class="description_table type_2 m_bottom_15">
 					<tr>
 						<td class="v_align_m">Tamanhos Disponíveis:</td>
 						<td class="v_align_m">
@@ -73,9 +82,9 @@
 							</div>
 						</td>
 					</tr>
-				</table>
+				</table> -->
 				<div class="clearfix m_bottom_15">
-					<button class="button_type_12 r_corners bg_scheme_color color_light tr_delay_hover f_left f_size_large" ng-click="putInCart()">Àdicionar ao Carrinho</button>
+					<button class="button_type_12 r_corners bg_scheme_color color_light tr_delay_hover f_left f_size_large" ng-click="putInCart()">Pedir Orçamento</button>
 				</div>
 			</div>
 		</div>

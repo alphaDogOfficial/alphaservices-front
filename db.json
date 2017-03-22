@@ -1,0 +1,24 @@
+{
+	"integrador": [
+	    { "id": 1, "nome":"Maria", "tipo":"reforma", "imagem":"" },
+	    { "id": 2, "nome":"Joana", "tipo":"jardinagem", "imagem":"" }, 
+	    { "id": 3, "nome":"Saulo Furuta", "tipo":"eventos", "imagem":"" }
+	],
+
+	"prestador": [
+	    { "id": 1, "nome":"João", "tipo":"reforma", "imagem":"" },
+	    { "id": 2, "nome":"Júlia", "tipo":"jardinagem", "imagem":"" }, 
+	    { "id": 3, "nome":"Graça", "tipo":"eventos", "imagem":"" }
+	],
+
+	"cliente": [
+	  	{ "id": 1, "nome":"Kino", "imagem":"" },
+	    { "id": 2, "nome":"Amigo", "imagem":"" }, 
+	    { "id": 3, "nome":"Comédia", "imagem":"" }
+	],
+	"fornecedor": [
+	  	{"nome": "Reforma", "descricao": "A melhor reforma da história", "imagem":"http://galfaro.com.br/site/wp-content/uploads/2014/07/problemas-mais-comuns-na-reforma-de-imoveis-10.jpg"},
+	  	{"nome": "Jardinagem", "descricao":"Uma jardinagem 9/10", "imagem":"https://www.colegioweb.com.br/wp-content/uploads/2016/04/Paisagismo-Jardinagem.jpg"}, 
+	  	{"nome": "Eventos", "descricao":"O eventos dos seus sonhos", "imagem":"http://www.oficinadeeventosnet.com.br/blog/wp-content/uploads/2014/10/casaterrana_eventos2_965.jpg"}
+	]
+}
