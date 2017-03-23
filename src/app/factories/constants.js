@@ -1,8 +1,8 @@
 const backendPort  = "3000";
-const hostname = "localhost";
+const hostname = "alpha-back.herokuapp.com";
 
 const TSConfig = {
-  urlBase: "http://" + hostname + ":" + backendPort + "/"
+  urlBase: "http://" + hostname + "/"
 };
 
 console.log("Backend Located @ ", TSConfig.urlBase);

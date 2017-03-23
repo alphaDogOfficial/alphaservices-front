@@ -4,8 +4,8 @@
   "description": "Frontend for TradeSports E-commerce",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --history-api-fallback --inline --progress --port 4000"
+    "test": "webpack-dev-server --history-api-fallback --inline --progress",
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,9 @@
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "gulp": "*",
+    "gulp-connect": "*"
   },
   "dependencies": {
     "angular": "^1.5.7",
