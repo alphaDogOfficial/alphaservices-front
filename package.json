@@ -11,6 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --history-api-fallback --inline --progress --port 4000"
   },
+  "postinstall": "webpack -p --config ./webpack.prod.config.js --progress",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sauloxd/tradesports-front.git"
@@ -56,17 +57,19 @@
     "flexslider": "^2.6.0",
     "font-awesome": "^4.3.0",
     "font-awesome-webpack": "0.0.4",
+    "grunt-cli": "^1.2.0",
     "isotope-layout": "^3.0.1",
     "jquery": "2.1.0",
     "jquery.scrollbar": "^0.2.10",
+    "json-server": "*",
     "less": "^2.7.1",
     "ngstorage": "^0.3.10",
+    "node-gyp": "^3.6.0",
     "owl.carousel": "^2.1.4",
     "owlcarousel-pre": "^1.3.3",
     "retinajs": "^2.1.0",
     "smoothscroll": "^0.2.2",
     "url-loader": "^0.5.7",
-    "waypoints": "^4.0.0",
-    "json-server": "*"
+    "waypoints": "^4.0.0"
   }
 }
