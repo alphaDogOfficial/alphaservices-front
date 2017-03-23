@@ -11,6 +11,23 @@
 	    { "id": 3, "nome":"Graça", "tipo":"eventos", "imagem":"" }
 	],
 
+	"reforma": [
+	    { "id": 1, "nome":"João", "tipo":"reforma", "imagem":"" },
+	    { "id": 2, "nome":"Júlia", "tipo":"jardinagem", "imagem":"" }, 
+	    { "id": 3, "nome":"Graça", "tipo":"eventos", "imagem":"" }
+	],
+
+	"jardinagem": [
+	    { "id": 1, "nome":"João", "tipo":"reforma", "imagem":"" },
+	    { "id": 2, "nome":"Júlia", "tipo":"jardinagem", "imagem":"" }, 
+	    { "id": 3, "nome":"Graça", "tipo":"eventos", "imagem":"" }
+	],
+
+	"eventos": [
+	    { "id": 1, "nome":"João", "tipo":"reforma", "imagem":"" },
+	    { "id": 2, "nome":"Júlia", "tipo":"jardinagem", "imagem":"" }, 
+	    { "id": 3, "nome":"Graça", "tipo":"eventos", "imagem":"" }
+	],
 	"cliente": [
 	  	{ "id": 1, "nome":"Kino", "imagem":"" },
 	    { "id": 2, "nome":"Amigo", "imagem":"" }, 
