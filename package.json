@@ -4,9 +4,7 @@
   "description": "Frontend for TradeSports E-commerce",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --history-api-fallback --inline --progress --port 4000",
-    "webpack:deploy": "webpack --config=webpack.config.js -p",
-    "heroku-postbuild": "npm run webpack:deploy"
+    "start": "webpack-dev-server --history-api-fallback --inline --progress --port 4000"
   },
   "repository": {
     "type": "git",
@@ -43,7 +41,8 @@
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
     "gulp": "*",
-    "gulp-connect": "*"
+    "gulp-connect": "*",
+    "gulp-concat": "*"
   },
   "dependencies": {
     "angular": "^1.5.7",

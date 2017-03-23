@@ -1,0 +1,1 @@
+web: webpack-dev-server --history-api-fallback --inline --progress --port 4000
