@@ -4,8 +4,8 @@
   "description": "Frontend for TradeSports E-commerce",
   "main": "index.js",
   "scripts": {
-    "test": "webpack-dev-server --history-api-fallback --inline --progress",
-    "start": "gulp"
+    "start": "webpack-dev-server --history-api-fallback --inline --progress --port 4000",
+    "postinstall": "webpack -p --config ./webpack.config.js --progress"
   },
   "repository": {
     "type": "git",
