@@ -10,48 +10,66 @@ var homeController = function ($rootScope, crudService, $window, $stateParams) {
 	}, function(err) {
 	  console.log('error', err);
 	});
+  }else{
+  	crudService.get(type)
+	.then(function(response){
+		vm.products = response.data
+
+	}, function(err) {
+	  console.log('error', err);
+	});
+  }
+  
+ //  if(type == ''){
+ //  	crudService.get('fornecedor')
+	// .then(function(response){
+	// 	vm.products = response.data
+
+	// }, function(err) {
+	//   console.log('error', err);
+	// });
 	  
-  }
-  else if(type == 'reforma'){
-  	crudService.get('reforma')
-	.then(function(response){
-		vm.products = response.data
+ //  }
+ //  else if(type == 'reforma'){
+ //  	crudService.get('reforma')
+	// .then(function(response){
+	// 	vm.products = response.data
 
-	}, function(err) {
-	  console.log('error', err);
-	});
+	// }, function(err) {
+	//   console.log('error', err);
+	// });
 	  	
-  }
-  else if(type == 'jardinagem'){
-  	crudService.get('jardinagem')
-	.then(function(response){
-		vm.products = response.data
+ //  }
+ //  else if(type == 'jardinagem'){
+ //  	crudService.get('jardinagem')
+	// .then(function(response){
+	// 	vm.products = response.data
 
-	}, function(err) {
-	  console.log('error', err);
-	});
+	// }, function(err) {
+	//   console.log('error', err);
+	// });
 	  	
-  }
-  else if(type == 'eventos'){
-  	crudService.get('eventos')
-	.then(function(response){
-		vm.products = response.data
+ //  }
+ //  else if(type == 'eventos'){
+ //  	crudService.get('eventos')
+	// .then(function(response){
+	// 	vm.products = response.data
 
-	}, function(err) {
-	  console.log('error', err);
-	});
+	// }, function(err) {
+	//   console.log('error', err);
+	// });
 	  	
-  }
-  else{
-  	crudService.get('fornecedor')
-	.then(function(response){
-		vm.products = response.data
+ //  }
+ //  else{
+ //  	crudService.get('fornecedor')
+	// .then(function(response){
+	// 	vm.products = response.data
 
-	}, function(err) {
-	  console.log('error', err);
-	});
+	// }, function(err) {
+	//   console.log('error', err);
+	// });
 	  
-  }
+ //  }
   
   crudService.get('servico')
 	.then(function(response){
