@@ -4,8 +4,7 @@
   "description": "Frontend for TradeSports E-commerce",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "webpack -p --config webpack.prod.config.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
