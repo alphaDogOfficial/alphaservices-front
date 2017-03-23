@@ -7,8 +7,7 @@ export default function routes($stateProvider) {
     .state('reviews-my', {
       url: '/myreviews',
       templateUrl: 'reviews-my.html',
-      controller: 'myReviewsCtrl',
-      controllerAs: 'vm'
+      controller: 'myReviewsCtrl'
     });
 
 }

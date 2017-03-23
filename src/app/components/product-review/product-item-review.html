@@ -9,7 +9,8 @@
     <!--description and price of product-->
     <figcaption>
       <h5 class="m_bottom_10"><a href="#" class="color_dark">{{data.nome}}</a></h5>
-      <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0 m_bottom_15" ng-click="openReviewModal()">Avaliar</button>
+      <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0 m_bottom_15" ng-click="openReviewModal()" ng-if="!hasReview">Avaliar</button>
+      <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0 m_bottom_15" ng-click="openReviewModal()" ng-if="hasReview" disabled>Avaliar</button>
     </figcaption>
   </figure>
 </div>

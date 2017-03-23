@@ -1,6 +1,6 @@
 import TSConfig from '../factories/constants.js';
 
-function authService($http, $localStorage, $state, cartService) {
+function authService($http, $localStorage, $state,) {
   var service = {};
 
   var login = function(login, senha, callback) {
@@ -14,10 +14,6 @@ function authService($http, $localStorage, $state, cartService) {
           // add jwt token to auth header for all requests made by the $http service
           $http.defaults.headers.common.Authorization = response.data.token;
 
-          // execute callback with true to indicate successful login
-          cartService.init().then(()=>{
-            callback(true);
-          });
         }
       }, function(err) {
         console.log('err', err);

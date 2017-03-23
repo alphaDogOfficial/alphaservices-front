@@ -1,12 +1,11 @@
 import TSConfig from '../../factories/constants.js';
 
 var reviewsCtrl = function ($rootScope, crudService, $state, $scope, $http, $stateParams) {
-  var vm = this;
-  var table = $stateParams.type;
+  $scope.table = $stateParams.type;
 
-  if(table == 'integrator')
+  if($scope.table == 'integrator')
   	$scope.type = 'Integradores'
-  else if(table == 'provider')
+  else if($scope.table == 'provider')
   	$scope.type = "Fornecedores"
   else
   	$scope.type = 'Serviços';
@@ -14,12 +13,23 @@ var reviewsCtrl = function ($rootScope, crudService, $state, $scope, $http, $sta
   $rootScope.isHomeActive = false;
   $rootScope.isReviewsActive = true;
 
-  crudService.get(table)
+  crudService.get("review")
     .then(function(response){
-      $scope.items = response.data;
+      $scope.reviews = response.data;
+      crudService.get($scope.table)
+      .then(function(response){
+        $scope.items = response.data;
+      }, function(err) {
+        console.log('error', err);
+      });
     }, function(err) {
       console.log('error', err);
     });
+
+  $scope.hasReview = function(id) {
+    return ($scope.reviews.some(function(e) { return e.typeId == id && e.type == $scope.table }))
+  }
+
 
 }
 export default reviewsCtrl;

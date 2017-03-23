@@ -23,7 +23,7 @@
           <!--products-->
           <section class="products_container a_type_2 category_grid clearfix m_bottom_25">
             <!--product item-->
-            <product-item-review ng-repeat="item in items" data="item" index="item.id"></product-item-review>
+            <product-item-review ng-repeat="item in items" data="item" type="table" index="item.id" has-review="hasReview(item.id)"></product-item-review>
           </section>
 
           <div class="row clearfix">

@@ -4,15 +4,6 @@ var homeController = function ($rootScope, crudService, $window) {
   $rootScope.isHomeActive = true;
   $rootScope.isReviewsActive = false;
 
-  crudService.get('produto')
-	.then(function(response){
-		vm.page = 1
-		vm.allProducts = response.data
-	  vm.products = vm.allProducts.slice(0, 12);
-	}, function(err) {
-	  console.log('error', err);
-	});
-
 	$rootScope.$on('rootScope:newProducts', function (event, data) {
 		vm.page = 1
 		vm.allProducts = data

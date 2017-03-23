@@ -27,9 +27,7 @@ import 'imports?$=jquery!../../../js/flatastic.js';
 
 import routing from './home.routes';
 import homeController from './home.controller';
-import productDirective from '../../components/product/product-item.directive'
 export default angular.module('app.home', [uirouter, crudService])
   .config(routing)
   .controller('homeController', homeController)
-  .directive('productItem', productDirective)
   .name; //Exporta o nome do modulo pra poder por na injecao de dependencia do angular

@@ -8,7 +8,6 @@ export default function routes($stateProvider) {
       url: '/reviews',
       templateUrl: 'reviews.html',
       controller: 'reviewsCtrl',
-      controllerAs: 'vm',
       params: {
       	type: 'service'
       } 
