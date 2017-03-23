@@ -4,7 +4,7 @@ var connect = require('gulp-connect');
 gulp.task('connect', function () {
    connect.server({
     root: 'dist',
-    port: process.env.PORT || 4000, // localhost:5000
+    port: process.env.PORT || 4000, // localhost:4000
     livereload: false
   });
 });
