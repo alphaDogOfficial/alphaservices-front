@@ -7,9 +7,9 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
   vm.isCpfOk = true;
   vm.showCard = false;
 
-  $http.get('http://localhost:3000/payments')
+  $http.get('https://evening-dawn-47995.herokuapp.com/payments')
       .then((response) =>  {
-        vm.paymentList = response.data
+        vm.paymentList = response.formData
       });
   
 
@@ -30,7 +30,7 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
     console.log(card);
     var jsonData = JSON.stringfy(formData);
     if(!vm.verifyObject(formData)) {
-      $http.post('http://localhost:3000/payments', jsonData)
+      $http.post('https://evening-dawn-47995.herokuapp.com/payments', jsonData)
         .then((response)=>  {
           if(response.data.confirmation == true) {
             alert("Pagamento efetuado!");
@@ -44,7 +44,7 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
   }
 
   vm.getPaymentList = function () {
-    $http.get('http:localhost:3000/payments')
+    $http.get('https://evening-dawn-47995.herokuapp.com/payments')
       .then((response) =>  {
         vm.paymentList = response
       });
