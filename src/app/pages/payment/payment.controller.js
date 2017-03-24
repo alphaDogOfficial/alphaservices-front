@@ -37,6 +37,8 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
        } else {
         alert("Erro na submissão das informações");
       }
+    } else {
+      alert("Erro na submissão das informações");
     }
       
   }
