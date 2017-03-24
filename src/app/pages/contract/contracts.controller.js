@@ -56,4 +56,4 @@ var contractCtrl = function (crudService, $state, $scope, $http) {
     return false;
   }
 }
-export default paymentCtrl;
+export default contractCtrl;

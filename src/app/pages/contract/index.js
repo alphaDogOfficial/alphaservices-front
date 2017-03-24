@@ -21,8 +21,8 @@ import "waypoints/lib/jquery.waypoints.min.js";
 import 'imports?$=jquery!../../../js/flatastic.js';
 
 import routing from './contracts.routes';
-import paymentCtrl from './contracts.controller';
+import contractCtrl from './contracts.controller';
 export default angular.module('app.contracts', [uirouter, crudService])
   .config(routing)
-  .controller('contractCtrl', paymentCtrl)
+  .controller('contractCtrl', contractCtrl)
   .name; //Exporta o nome do modulo pra poder por na injecao de dependencia do angular
