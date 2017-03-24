@@ -38,23 +38,27 @@
                   <ul>
                     <li class="m_bottom_15">
                       <label for="cardNome" class="d_inline_b m_bottom_5">Valor a Pagar</label>
-                      <input type="number" name="cardNome" ng-model="payCtrl.card.value" class="r_corners full_width">
+                      <input type="number" name="cardNome" ng-model="payCtrl.payment.value" class="r_corners full_width">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="cardNome" class="d_inline_b m_bottom_5">Beneficiário</label>
+                      <input type="text" name="cardNome" ng-model="payCtrl.payment.receiver" class="r_corners full_width">
                     </li>
                     <li class="m_bottom_15">
                       <label for="cardNome" class="d_inline_b m_bottom_5">Nome do Portador</label>
-                      <input type="text" name="cardNome" ng-model="payCtrl.card.nome" class="r_corners full_width">
+                      <input type="text" name="cardNome" ng-model="payCtrl.payment.card.nome" class="r_corners full_width">
                     </li>
                     <li class="m_bottom_15">
                       <label for="numcard" class="d_inline_b m_bottom_5">Número do Cartão</label>
-                      <input type="number" min="1000000000000000" max="9999999999999999" name="numcard" ng-model="payCtrl.card.numero" class="r_corners full_width">
+                      <input type="number" min="1000000000000000" max="9999999999999999" name="numcard" ng-model="payCtrl.payment.card.numero" class="r_corners full_width">
                     </li>
                     <li class="m_bottom_15">
                       <label for="cardCVV" class="d_inline_b m_bottom_5">CVV</label>
-                      <input type="number" max="9999" name="cardCVV" ng-model="payCtrl.card.cvv" class="r_corners full_width">
+                      <input type="number" max="9999" name="cardCVV" ng-model="payCtrl.payment.card.cvv" class="r_corners full_width">
                     </li>
                     <li class="m_bottom_15">
                       <label for="datacard" class="d_inline_b m_bottom_5">Data de Validade</label>
-                      <input type="month" name="datacard" ng-model="payCtrl.card.data" class="r_corners full_width">
+                      <input type="month" name="datacard" ng-model="payCtrl.payment.card.data" class="r_corners full_width">
                     </li>
                   </ul>
                 </form>
@@ -62,8 +66,13 @@
             </div>
 
           </div>
-           <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ui-sref="listPayment">listar pagamentos</button>
-          <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-click="payCtrl.processPayment()">Pagar</button>
+          <div class="row clearfix">
+          <div class="col-lg-2">
+             <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ui-sref="listPayment">listar pagamentos</button>
+          </div>
+          <div class="col-lg-2">
+            <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-click="payCtrl.processPayment()">Pagar</button>
+          s</div>
          </section>
         <!--right column-->
       </div>

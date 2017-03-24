@@ -26,8 +26,7 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
   // ];
 
   vm.processPayment = function () {
-    var formData = vm.card;
-    console.log(card);
+    var formData = vm.payment;
     if(formData != null ) {
       var jsonData = JSON.stringify(formData);
       if(!vm.verifyObject(formData)) {
