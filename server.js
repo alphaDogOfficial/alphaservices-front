@@ -16,6 +16,18 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/dist/index.html')
 });
 
+app.get('/home', function(request, response) {
+  response.sendFile(__dirname + '/dist/index.html')
+});
+
+app.get('/newContract', function(request, response) {
+  response.sendFile(__dirname + '/dist/index.html')
+});
+
+app.get('/myContracts', function(request, response) {
+  response.sendFile(__dirname + '/dist/index.html')
+});
+
 app.listen(PORT, function(error) {
   if (error) {
     console.error(error);
