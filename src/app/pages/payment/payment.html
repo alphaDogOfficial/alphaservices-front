@@ -13,7 +13,7 @@
         <!--left content column-->
         <section class="col-lg-12 col-md-12 col-sm-12 m_xs_bottom_30">
           <h2 class="tt_uppercase color_dark m_bottom_30">Pagamento</h2>
-          <div class="bs_inner_offsets bg_light_color_3 shadow r_corners m_bottom_45">
+     <!--      <div class="bs_inner_offsets bg_light_color_3 shadow r_corners m_bottom_45">
               <input id="boleto" type="radio" checked name="radio_2" class="d_none" ng-model="payCtrl.payment" value="boleto" ng-click="payCtrl.cardNotSelected()">
               <label for="boleto"></label>
               <figcaption class="d_table d_sm_block">
@@ -21,7 +21,7 @@
                   <h5 class="color_dark fw_medium m_bottom_15 m_sm_bottom_5">Boleto</h5>
                   <p>Pagamento via Boleto Bancário</p>
                 </div>
-              </figcaption>
+              </figcaption> -->
             <hr class="m_bottom_20">
               <figcaption>
                 <input id="card" type="radio" name="radio_2" class="d_none" ng-model="payCtrl.payment" value="card" ng-click="payCtrl.cardSelected()">
@@ -36,6 +36,10 @@
                 <h5 class="fw_medium m_bottom_15">Dados do Cartão</h5>
                 <form>
                   <ul>
+                    <li class="m_bottom_15">
+                      <label for="cardNome" class="d_inline_b m_bottom_5">Valor a Pagar</label>
+                      <input type="number" name="cardNome" ng-model="payCtrl.card.value" class="r_corners full_width">
+                    </li>
                     <li class="m_bottom_15">
                       <label for="cardNome" class="d_inline_b m_bottom_5">Nome do Portador</label>
                       <input type="text" name="cardNome" ng-model="payCtrl.card.nome" class="r_corners full_width">
@@ -58,6 +62,7 @@
             </div>
 
           </div>
+           <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover m_bottom_20" ui-sref="listPayment">listar pagamentos</button>
           <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-click="payCtrl.processPayment()">Pagar</button>
          </section>
         <!--right column-->

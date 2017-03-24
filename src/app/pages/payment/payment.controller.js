@@ -33,11 +33,7 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
       if(!vm.verifyObject(formData)) {
         $http.post('https://evening-dawn-47995.herokuapp.com/payments', jsonData)
           .then((response)=>  {
-            if(response.data.confirmation == true) {
               alert("Pagamento efetuado!");
-            } else {
-              alert("Erro no processamento, por favor tente novamente.");
-            }
           });
        } else {
         alert("Erro na submissão das informações");
