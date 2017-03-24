@@ -18,36 +18,21 @@
             <thead>
               <tr class="f_size_large">
                 <!--titles for td-->
-                <th>Nome do Portador</th>
-                <th>Número do Cartão</th>
-                <th>CVV</th>
-                <th>Data de Expiração</th>
-                <th>Data do pagamento</th>
-                <th>Valor</th>
+                <th>Projeto</th>
+                <th>Organização</th>
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="item in payCtrl.paymentList" payCtrl-item item="item" index="$index" remove-item="payCtrl.removeItem(index)" update-qtd="payCtrl.updateQtd(index, qtd)">
+              <tr ng-repeat="item in contractCtrl.myContracts" payCtrl-item item="item" index="$index" remove-item="payCtrl.removeItem(index)" update-qtd="payCtrl.updateQtd(index, qtd)">
                 <td>
-                  <p class="fw_medium f_size_large color_dark">{{item.receiver}}</p>
+                  <p class="fw_medium f_size_large color_dark">{{item.project}}</p>
                 </td>
                 <td>
-                  <p class="fw_medium f_size_large color_dark">{{item.card.card}}</p>
+                  <p class="fw_medium f_size_large color_dark">{{item.organization}}</p>
                 </td>
-                <td>
-                  <p class="fw_medium f_size_large color_dark">{{item.card.cvv}}</p>
-                </td>
-                <td>
-                  <p class="fw_medium f_size_large color_dark">{{item.card.expDate}}</p>
-                </td>
-                <td>
-                  <p class="fw_medium f_size_large color_dark">{{item.date}}</p>
-                </td>
-                 <td>
-                  <p class="fw_medium f_size_large color_dark">{{item.value}}</p>
-                </td>              </tr>
+              </tr>
                 <td colspan="7">
-                  <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ui-sref="payment">Voltar</button>
+                  <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ui-sref="home">Voltar</button>
                 </td>
               </tr>
             </tbody>

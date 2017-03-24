@@ -7,16 +7,6 @@ var contractCtrl = function (crudService, $state, $scope, $http) {
   vm.isCpfOk = true;
   vm.showCard = false;
 
-  $http.get('http://localhost:3000/myContracts')
-      .then((response) =>  {
-        vm.myContracts = response.data
-      });
-
-
-   vm.cardSelected = function() {
-    vm.showCard = true
-  }
-
   vm.processNewContract = function () {
     if (vm.card == null) {
       vm.card = false;
@@ -31,13 +21,20 @@ var contractCtrl = function (crudService, $state, $scope, $http) {
       "startDate": 1490357876,
       "endDate": 1490357876 }
       var jsonData = JSON.stringify(contract);
-      $http.post('https://alpha-contract-backend.herokuapp.com/contract', jsonData)
+      $http.post('http://alpha-contract-backend.herokuapp.com/contract', jsonData)
         .then((response)=>  {
           alert("Contrato gerado com Sucesso!");
+          $state.go('myContracts');
         });
      } else {
       alert("Selecione o checkbox");
     }
+  }
+
+  vm.myContracts = function() {
+    $http.get('http://alpha-contract-backend.herokuapp.com/contract').then((response) =>  {
+      vm.myContracts = response.data
+    });
   }
 
   vm.verifyObject = function (target) {
