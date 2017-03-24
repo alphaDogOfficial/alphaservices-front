@@ -23,7 +23,7 @@ import prodConstants from './factories/prodConstants';
 //Flatastic Imports
 
 function initAnonyCart($localStorage) {
-  console.log('oi');
+
 
   $localStorage.anonyCart = [];
   console.log('localstorage> ', $localStorage.anonyCart );

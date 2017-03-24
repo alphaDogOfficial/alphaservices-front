@@ -17,13 +17,6 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
     vm.showCard = true
   }
 
-  // vm.paymentList = [
-  //   { "value": "2000", "date": "21/02/2017", "receiver":  "joao", "card": {"name" : "Teste" , "card" : "12112121211211", "cvv" : "224", "expDate" : "02/2022"  } },
-  //   { "value": "2000", "date": "21/02/2017", "receiver":  "pedro", "card": {"name" : "Teste3" , "card" : "123331211211", "cvv" : "231", "expDate" : "02/2022" }  },
-  //   { "value": "2000", "date": "21/02/2017", "receiver":  "carolina", "card": {"name" : "Teste4" , "card" : "12112127584211", "cvv" : "474", "expDate" : "02/2022" }  },
-  //   { "value": "2000", "date": "21/02/2017", "receiver":  "mario", "card": {"name" : "Teste5" , "card" : "129991511211", "cvv" : "825", "expDate" : "02/2022" }  },
-  //   { "value": "2000", "date": "21/02/2017", "receiver":  "alexandre", "card": {"name" : "Teste6" , "card" : "12112121211211", "cvv" : "904", "expDate" : "02/2022" }  }
-  // ];
 
   vm.processPayment = function () {
     var formData = vm.pmt;
@@ -61,9 +54,16 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
         if (target[member] == null)
             return true;
     }
-    return false;
+
+    return vm.validation(target);
   }
 
+  vm.validation = function (target) {
+    if(target.value != null && target.date != null && target.receiver != null && target.card != null ) {
+      return false;
+    } 
+    return true;
+  }
   // vm.createUser = function () {
   //   var formData = {
   //     nome:vm.user.nome,

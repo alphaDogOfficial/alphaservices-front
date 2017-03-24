@@ -25,6 +25,7 @@
                 <th>Data de Expiração</th>
                 <th>Data do pagamento</th>
                 <th>Valor</th>
+                <th>Parcelas</th>
               </tr>
             </thead>
             <tbody>
@@ -46,7 +47,11 @@
                 </td>
                  <td>
                   <p class="fw_medium f_size_large color_dark">R${{item.value}}</p>
-                </td>             
+                </td>
+                <td>
+                  <p class="fw_medium f_size_large color_dark" ng-if="item.instalments != null">{{item.instalments}}</p>
+                  <p class="fw_medium f_size_large color_dark" ng-if="item.instalments == 0">1</p>
+                </td>                
                 </tr>
                 <td colspan="7">
                   <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ui-sref="payment">Voltar</button>
