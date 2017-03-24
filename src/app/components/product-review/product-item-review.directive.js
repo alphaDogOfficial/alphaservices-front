@@ -37,19 +37,25 @@ function ModalCtrl($scope, $uibModalInstance, crudService) {
   };
 
   $scope.createReview = function(score, service, satisfaction, comment) {
-    var data = {
-      score: score,
-      service: service,
-      satisfaction: satisfaction,
-      comment: comment,
-      type: $scope.$parent.type,
-      typeId: $scope.$parent.data.id,
-      imagem: $scope.$parent.data.imagem
-    }
+    if(score) {
+      var data = {
+        score: score,
+        service: service,
+        satisfaction: satisfaction,
+        comment: comment,
+        type: $scope.$parent.type,
+        typeId: $scope.$parent.data.id,
+        imagem: $scope.$parent.data.imagem
+      }
 
-    crudService.post("review", data)
-      .then(function(response) {
-        $scope.cancel();
-      })
+      crudService.post("review", data)
+        .then(function(response) {
+          $scope.cancel();
+        })
+    } else {
+      var myToastMsg = ngToast.warning({
+        content: '<a href="#" class="">a message</a>'
+      });
+    }
   }
 }

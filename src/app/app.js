@@ -22,18 +22,10 @@ import prodConstants from './factories/prodConstants';
 
 //Flatastic Imports
 
-function initAnonyCart($localStorage) {
-  console.log('oi');
-
-  $localStorage.anonyCart = [];
-  console.log('localstorage> ', $localStorage.anonyCart );
-}
-
 const MODULE_NAME = 'app';
 
 angular.module(MODULE_NAME, [uirouter, modal, ngStorage, home, login, auth, promocao, prodConstants, checkout, myAcc, cadastro, reviews, myReviews, 'ngOpbeat'])
   .config(routing)
-  .controller('initAnonyCart', initAnonyCart)
   .controller('navbarCtrl', navbarCtrl);
 
 export default MODULE_NAME;

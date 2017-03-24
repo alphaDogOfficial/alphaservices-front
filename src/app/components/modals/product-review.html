@@ -34,7 +34,8 @@
 	                      <label for="a_name_1" class="d_inline_b m_bottom_5">Comentários</label>
 	                      <textarea rows="10" name="comments" ng-model="comment" class="r_corners full_width" style="height: 100%"/>
 	                    </div>
-	                <button type="submit" class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20">Salvar</button>
+	                <button type="submit" class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-if="score">Salvar</button>
+	                <div class="alert alert-danger" role="alert" ng-if="!score">Você precisa pelo menos dar uma nota para concluir a avaliação</div>
 	                </form>
 	              </div>
 	            </div>
