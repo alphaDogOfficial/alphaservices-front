@@ -42,12 +42,12 @@ export default function productDirective($uibModal, crudService, $localStorage, 
 
           scope.putInCart = function(){
             var data = {
-              nome: $scope.data.nome,
-              tipo: $scope.data.servico,
-              descricao: $scope.data.descricao,
-              imagem: $scope.data.imagem,
-              responsavel: $scope.data.responsavel,
-              Valor: $scope.data.Valor
+              nome: scope.data.nome,
+              tipo: scope.data.servico,
+              descricao: scope.data.descricao,
+              imagem: scope.data.imagem,
+              responsavel: scope.data.responsavel,
+              Valor: scope.data.Valor
     }
 
     crudService.post("contratado", data)
