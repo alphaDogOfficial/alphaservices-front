@@ -13,37 +13,43 @@ export default function productReviewDirective($uibModal, crudService, $localSto
             hasReview: '='
         },
         link: function(scope, element, attr) {
-        	scope.modalInstance;
+        	scope.modalInstance = null;
+
           scope.openReviewModal = function (item) {
 
             scope.modalInstance = $uibModal.open({
               animation: true,
               templateUrl: 'product-review.html',
               size: 'lg',
-              scope: scope
+              scope: scope,
+              controller: ModalCtrl
             }).opened.then(()=>{$timeout(()=>{cs();}, 0)});
+
           };
-
-          scope.cancel = function () {
-            scope.modalInstance.dismiss('cancel');
-          };
-
-          scope.createReview = function(score, service, satisfaction, comment) {
-            var data = {
-              score: score,
-              service: service,
-              satisfaction: satisfaction,
-              comment: comment,
-              type: scope.type,
-              typeId: scope.data.id,
-              imagem: scope.data.imagem
-            }
-
-            crudService.post("review", data)
-              .then(function(response) {
-              })
-          }
         }
     };
+}
 
+function ModalCtrl($scope, $uibModalInstance, crudService) {
+
+  $scope.cancel = function () {
+    $scope.$dismiss('');
+  };
+
+  $scope.createReview = function(score, service, satisfaction, comment) {
+    var data = {
+      score: score,
+      service: service,
+      satisfaction: satisfaction,
+      comment: comment,
+      type: $scope.$parent.type,
+      typeId: $scope.$parent.data.id,
+      imagem: $scope.$parent.data.imagem
+    }
+
+    crudService.post("review", data)
+      .then(function(response) {
+        $scope.cancel();
+      })
+  }
 }
