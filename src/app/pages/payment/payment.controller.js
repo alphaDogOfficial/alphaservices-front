@@ -28,19 +28,22 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
   vm.processPayment = function () {
     var formData = vm.card;
     console.log(card);
-    var jsonData = JSON.stringfy(formData);
-    if(!vm.verifyObject(formData)) {
-      $http.post('https://evening-dawn-47995.herokuapp.com/payments', jsonData)
-        .then((response)=>  {
-          if(response.data.confirmation == true) {
-            alert("Pagamento efetuado!");
-          } else {
-            alert("Erro no processamento, por favor tente novamente.");
-          }
-        });
-     } else {
-      alert("Erro na submissão das informações");
+    if(formData != null ) {
+      var jsonData = JSON.stringify(formData);
+      if(!vm.verifyObject(formData)) {
+        $http.post('https://evening-dawn-47995.herokuapp.com/payments', jsonData)
+          .then((response)=>  {
+            if(response.data.confirmation == true) {
+              alert("Pagamento efetuado!");
+            } else {
+              alert("Erro no processamento, por favor tente novamente.");
+            }
+          });
+       } else {
+        alert("Erro na submissão das informações");
+      }
     }
+      
   }
 
   vm.getPaymentList = function () {
