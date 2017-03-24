@@ -22,7 +22,12 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
     var formData = vm.pmt;
     if(formData != null ) {
       var jsonData = JSON.stringify(formData);
-      var cartao = vm.testarCC(formData.card.card);
+      if (formData.card != null && formData.card.card != null){
+        var cartao = vm.testarCC(formData.card.card);
+      } else {
+        var cartao = true;
+      }
+      
       if(!vm.verifyObject(formData) && cartao != false) {
         $http.post('https://evening-dawn-47995.herokuapp.com/payments', jsonData)
           .then((response)=>  {
