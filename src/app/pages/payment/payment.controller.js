@@ -74,7 +74,7 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
       Discover: /^6(?:011|5[0-9]{2})[0-9]{12}/,
       JCB: /^(?:2131|1800|35\d{3})\d{11}/
     };
-      for (var cartao in cartoes) if (nr.match(cartoes[cartao])) return cartao;
+      for (var cartao in cartoes) if (String(nr).match(cartoes[cartao])) return cartao;
       return false;
   }
 
