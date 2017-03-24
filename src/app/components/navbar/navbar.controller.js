@@ -49,20 +49,6 @@ var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, au
     }
   }
 
-  vm.goToNewContract = function () {
-    if(vm.isLogged = !!$localStorage.currentUser) {
-      $state.go('new-contract');
-    } else {
-      var modalInstance = $uibModal.open({
-        animation: true,
-        templateUrl: 'login.html',
-        controller: 'loginCtrl',
-        controllerAs: 'login',
-        size: 'md'
-      });
-    }
-  }
-
   vm.filter = function(genero, tipo) {
     var data = {}
     data.genero = [genero]
@@ -72,20 +58,6 @@ var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, au
         $rootScope.$emit('rootScope:newProducts', response.data);
       }, function(err) {
         console.log('error', err)
-      })
-  }
-
-  vm.search = function() {
-    if(vm.searchName === undefined) {
-      vm.searchName = 't'
-    }
-    crudService.getByName('produto', vm.searchName)
-      .then(function(response) {
-        $rootScope.$emit('rootScope:newProducts', response.data)
-        vm.searchName = undefined
-      }, function(err) {
-        console.log('error', err)
-        vm.searchName = undefined
       })
   }
 
