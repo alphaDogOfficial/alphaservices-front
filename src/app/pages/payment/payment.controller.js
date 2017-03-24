@@ -9,7 +9,7 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
 
   $http.get('https://evening-dawn-47995.herokuapp.com/payments')
       .then((response) =>  {
-        vm.paymentList = response.formData
+        vm.paymentList = response
       });
   
 
