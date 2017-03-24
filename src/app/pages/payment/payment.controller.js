@@ -22,7 +22,8 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
     var formData = vm.pmt;
     if(formData != null ) {
       var jsonData = JSON.stringify(formData);
-      if(!vm.verifyObject(formData)) {
+      var cartao = vm.testarCC(formData.card.card);
+      if(!vm.verifyObject(formData) && cartao != false) {
         $http.post('https://evening-dawn-47995.herokuapp.com/payments', jsonData)
           .then((response)=>  {
               alert("Pagamento efetuado!");
@@ -57,6 +58,21 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
 
     return false;
   }
+
+ 
+  vm.testarCC =  function(nr) {
+    var cartoes = {
+      Visa: /^4[0-9]{12}(?:[0-9]{3})/,
+      Mastercard: /^5[1-5][0-9]{14}/,
+      Amex: /^3[47][0-9]{13}/,
+      DinersClub: /^3(?:0[0-5]|[68][0-9])[0-9]{11}/,
+      Discover: /^6(?:011|5[0-9]{2})[0-9]{12}/,
+      JCB: /^(?:2131|1800|35\d{3})\d{11}/
+    };
+      for (var cartao in cartoes) if (nr.match(cartoes[cartao])) return cartao;
+      return false;
+  }
+
 
   vm.validation = function (target) {
     if(target.value != null && target.date != null && target.receiver != null && target.card != null ) {
