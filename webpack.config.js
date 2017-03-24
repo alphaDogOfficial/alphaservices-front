@@ -53,7 +53,7 @@ module.exports = function makeWebpackConfig () {
     // Output path from the view of the page
     // Uses webpack-dev-server in development
     // publicPath: isProd ? '/' : 'http://localhost:4000/',
-    publicPath: production ? 'https://alpha-contracts.herokuapp.com/' : 'http://localhost:4000',
+    publicPath: production ? 'http://alpha-contracts.herokuapp.com/' : 'http://localhost:4000',
 
     // Filename for entry points
     // Only adds hash in build mode
