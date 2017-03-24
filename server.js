@@ -12,17 +12,10 @@ if(process.env.NODE_ENV !== 'production') {
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('/', function(request, response) {
+app.get('/*', function(request, response) {
   response.sendFile(__dirname + '/dist/index.html')
 });
 
-app.get('/payment', function(request, response) {
-  response.sendFile(__dirname + '/dist/index.html')
-});
-
-app.get('/listPayment', function(request, response) {
-  response.sendFile(__dirname + '/dist/index.html')
-});
 app.listen(PORT, function(error) {
   if (error) {
     console.error(error);
