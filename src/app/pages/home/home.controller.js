@@ -3,7 +3,7 @@ var homeController = function ($rootScope, crudService, $window, $stateParams) {
   var vm = this;
   var type = $stateParams.type;
   if(type == ''){
-  	crudService.get('fornecedor')
+  	crudService.get('prestador')
 	.then(function(response){
 		vm.products = response.data
 
@@ -71,20 +71,20 @@ var homeController = function ($rootScope, crudService, $window, $stateParams) {
 	  
  //  }
   
-  crudService.get('servico')
-	.then(function(response){
-		vm.products = response.data
+ //  crudService.get('servico')
+	// .then(function(response){
+	// 	vm.products = response.data
 
-	}, function(err) {
-	  console.log('error', err);
-	});
-	crudService.get('provider')
-	.then(function(response){
-		vm.products = response.data
+	// }, function(err) {
+	//   console.log('error', err);
+	// });
+	// crudService.get('provider')
+	// .then(function(response){
+	// 	vm.products = response.data
 
-	}, function(err) {
-	  console.log('error', err);
-	});
+	// }, function(err) {
+	//   console.log('error', err);
+	// });
 
 	$rootScope.$on('rootScope:newProducts', function (event, data) {
 		vm.page = 1

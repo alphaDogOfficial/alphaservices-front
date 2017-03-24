@@ -1,17 +1,12 @@
 {
   "name": "tradesports-front",
   "version": "1.0.0",
-  "engines": {
-    "node": "7.5.0",
-    "npm": "4.2.0"
-  },
   "description": "Frontend for TradeSports E-commerce",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --history-api-fallback --inline --progress --port 4000"
+    "start": "node server.js"
   },
-  "postinstall": "webpack -p --config ./webpack.prod.config.js --progress",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sauloxd/tradesports-front.git"

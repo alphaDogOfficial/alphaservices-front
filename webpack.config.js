@@ -14,6 +14,7 @@ var path = require('path');
 var ENV = process.env.npm_lifecycle_event;
 var isTest = ENV === 'test' || ENV === 'test-watch';
 var isProd = ENV === 'build';
+var production = ENV === 'production';
 
 module.exports = function makeWebpackConfig () {
   /**
@@ -50,8 +51,9 @@ module.exports = function makeWebpackConfig () {
     path: __dirname + '/dist',
 
     // Output path from the view of the page
+    publicPath: production ? 'https://dashboard.heroku.com/apps/alphaservices-servicos' : 'http://localhost:4000',
     // Uses webpack-dev-server in development
-    publicPath: isProd ? '/' : 'http://localhost:4000/',
+    //publicPath: isProd ? '/' : 'http://localhost:4000/',
 
     // Filename for entry points
     // Only adds hash in build mode
