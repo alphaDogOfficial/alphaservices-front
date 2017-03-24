@@ -41,50 +41,18 @@ export default function productDirective($uibModal, crudService, $localStorage, 
           };
 
           scope.putInCart = function(){
-            var cs = document.querySelector('#cart_tamanho');
-            if (cs) {
-              scope.cart_tamanho = parseInt(angular.element(cs).val());
-            }
-            if($localStorage.currentUser) {
-              insertIntoCart = {
-                cpf_cliente: $localStorage.currentUser.cpf_id,
-                item: [{
-                  idProduto: scope.data.idproduto,
-                  quantidade: scope.cart_quantidade,
-                  tamanho: scope.cart_tamanho
-                }]
-              };
-              crudService.post('carrinho', insertIntoCart).then((response)=>{
-                cartService.update();
-              }, (err)=>{
-                console.log('err', err);
-              });
-            }else {
-              crudService.getById('produto', scope.data.idproduto).then((response)=>{
-                $localStorage.anonyCart.push({
-                  cart_quantidade: scope.cart_quantidade,
-                  cart_tamanho: scope.cart_tamanho,
-                  prod_description: response.data[0].descricao,
-                  prod_fabricante: response.data[0].fabricante,
-                  prod_idproduto: response.data[0].idproduto,
-                  prod_imagem: response.data[0].imagem,
-                  prod_nome: response.data[0].nome,
-                  prod_peso: response.data[0].peso,
-                  prod_quantidade: response.data[0].quantidade,
-                  prod_tipo: response.data[0].tipo,
-                  prod_valor: response.data[0].valor
-                });
+            var data = {
+              nome: $scope.data.nome,
+              tipo: $scope.data.servico,
+              descricao: $scope.data.descricao,
+              imagem: $scope.data.imagem,
+              responsavel: $scope.data.responsavel,
+              Valor: $scope.data.Valor
+    }
 
-              }, (err)=>{
-                console.log('err', err);
-              });
-            }
-          }
-
-          scope.cancel = function () {
-            modalInstance.dismiss('cancel');
-          };
-        }
+    crudService.post("contratado", data)
+      .then(function(response) {
+        $scope.cancel();
+      })
     };
-
-}
+}}}
