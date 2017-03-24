@@ -51,7 +51,7 @@ module.exports = function makeWebpackConfig () {
     path: __dirname + '/dist',
 
     // Output path from the view of the page
-    publicPath: production ? 'https://dashboard.heroku.com/apps/alphaservices-servicos' : 'http://localhost:4000',
+    publicPath: production ? 'https://alphaservices-servicos.herokuapp.com/' : 'http://localhost:4000',
     // Uses webpack-dev-server in development
     //publicPath: isProd ? '/' : 'http://localhost:4000/',
 
