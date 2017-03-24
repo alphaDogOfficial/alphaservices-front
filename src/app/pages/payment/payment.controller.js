@@ -55,7 +55,7 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
             return true;
     }
 
-    return vm.validation(target);
+    return false;
   }
 
   vm.validation = function (target) {
