@@ -20,18 +20,24 @@ var contractCtrl = function (crudService, $state, $scope, $http) {
   vm.processNewContract = function () {
     var formData = vm.card;
     console.log(card);
-    var jsonData = JSON.stringfy(formData);
     if(!vm.verifyObject(formData)) {
-      $http.post('http://localhost:3000/payments', jsonData)
+      var contract = {"budget": "R$ 43000000,00",
+      "person": "Lucas Batista",
+      "organization": "Alphadog",
+      "Project": "Contract",
+      "startDate": 1490357876,
+      "endDate": 1490357876 }
+      var jsonData = JSON.stringfy(contract);
+      $http.post('https://alpha-contract-backend.herokuapp.com/contract', jsonData)
         .then((response)=>  {
           if(response.data.confirmation == true) {
-            alert("Pagamento efetuado!");
+            alert("Contrato gerado com Sucesso!");
           } else {
             alert("Erro no processamento, por favor tente novamente.");
           }
         });
      } else {
-      alert("Erro na submissão das informações");
+      alert("Selecione o checkbox");
     }
   }
 
@@ -45,7 +51,7 @@ var contractCtrl = function (crudService, $state, $scope, $http) {
 
 
   vm.verifyObject = function (target) {
-    if (target == null) {
+    if (target == null || target == false) {
       return true
     }
 
