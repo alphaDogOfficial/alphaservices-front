@@ -31,7 +31,7 @@ function initAnonyCart($localStorage) {
 
 const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [uirouter, modal, ngStorage, home, cart, login, auth, promocao, prodConstants, checkout, myAcc, cadastro, contract])
+angular.module(MODULE_NAME, [uirouter, modal, ngStorage, home, cart, login, auth, promocao, prodConstants, checkout, myAcc, cadastro, contract, 'ngOpbeat'])
   .config(routing)
   .controller('initAnonyCart', initAnonyCart)
   .controller('navbarCtrl', navbarCtrl);
