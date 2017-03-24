@@ -6,7 +6,7 @@ export default function routing($urlRouterProvider, $locationProvider, $statePro
   $opbeatProvider.config({
       orgId: '63041e4d148f4db5a4e5ca80c7cc0346',
       appId: '657e8b3c9c'
-  })
+  });
 
   //
   // $stateProvider
