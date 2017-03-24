@@ -52,7 +52,7 @@ module.exports = function makeWebpackConfig () {
 
     // Output path from the view of the page
     // Uses webpack-dev-server in development
-    publicPath: production ? 'cryptic-brook-38342' : 'http://localhost:4000',
+    publicPath: 'https://cryptic-brook-38342.herokuapp.com/' ,
 
     // Filename for entry points
     // Only adds hash in build mode
