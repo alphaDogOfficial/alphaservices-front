@@ -50,7 +50,7 @@
                     </li>
                     <li class="m_bottom_15">
                       <label for="numcard" class="d_inline_b m_bottom_5">Número do Cartão</label>
-                      <input type="number" min="1000000000000000" max="9999999999999999" name="numcard" ng-model="payCtrl.pmt.card.numero" class="r_corners full_width">
+                      <input type="number" min="1000000000000000" max="9999999999999999" name="numcard" ng-model="payCtrl.pmt.card.card" class="r_corners full_width">
                     </li>
                     <li class="m_bottom_15">
                       <label for="cardCVV" class="d_inline_b m_bottom_5">CVV</label>
@@ -58,7 +58,7 @@
                     </li>
                     <li class="m_bottom_15">
                       <label for="datacard" class="d_inline_b m_bottom_5">Data de Validade</label>
-                      <input type="month" name="datacard" ng-model="payCtrl.pmt.card.data" class="r_corners full_width">
+                      <input type="month" name="datacard" ng-model="payCtrl.pmt.card.expDate" class="r_corners full_width">
                     </li>
                   </ul>
                 </form>
