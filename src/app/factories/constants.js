@@ -1,8 +1,8 @@
 const backendPort  = "3000";
-const hostname = "localhost";
+const hostname = "cryptic-brook-38342.herokuapp.com";
 
 const TSConfig = {
-  urlBase: "http://" + hostname + ":" + backendPort + "/api/"
+  urlBase: "https://" + hostname + ":" + backendPort + "/api/"
 };
 
 console.log("Backend Located @ ", TSConfig.urlBase);
