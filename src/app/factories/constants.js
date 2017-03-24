@@ -1,5 +1,5 @@
 const backendPort  = "3000";
-const hostname = "localhost";
+const hostname = "alpha-contract-backend.herokuapp.com/";
 
 const TSConfig = {
   urlBase: "http://" + hostname + ":" + backendPort + "/api/"
