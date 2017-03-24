@@ -11,8 +11,8 @@
       <div class="row clearfix">
         <!--left content column-->
         <section class="col-lg-12 col-md-12 col-sm-12 m_xs_bottom_30">
-          <h2 class="tt_uppercase color_dark m_bottom_25">Pagamentos realizados</h2>
-          <!--payCtrl table-->
+          <h2 class="tt_uppercase color_dark m_bottom_25">Contratos</h2>
+          <!--contractCtrl table-->
 
           <table class="table_type_6 responsive_table full_width r_corners wraper shadow t_align_l t_xs_align_c m_bottom_30">
             <thead>
@@ -23,9 +23,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="item in contractCtrl.myContracts" payCtrl-item item="item" index="$index" remove-item="payCtrl.removeItem(index)" update-qtd="payCtrl.updateQtd(index, qtd)">
+              <tr ng-repeat="item in contractCtrl.myContracts" contractCtrl-item item="item" index="$index">
                 <td>
-                  <p class="fw_medium f_size_large color_dark">{{item.project}}</p>
+                  <p class="fw_medium f_size_large color_dark">{{item.Project}}</p>
                 </td>
                 <td>
                   <p class="fw_medium f_size_large color_dark">{{item.organization}}</p>

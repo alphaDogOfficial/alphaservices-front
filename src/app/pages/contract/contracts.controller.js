@@ -6,6 +6,9 @@ var contractCtrl = function (crudService, $state, $scope, $http) {
   vm.isLoginOk = true;
   vm.isCpfOk = true;
   vm.showCard = false;
+  $http.get('http://alpha-contract-backend.herokuapp.com/contract').then((response) =>  {
+    vm.myContracts = response.data
+  });
 
   vm.processNewContract = function () {
     if (vm.card == null) {
@@ -31,7 +34,7 @@ var contractCtrl = function (crudService, $state, $scope, $http) {
     }
   }
 
-  vm.myContracts = function() {
+  vm.listMyContracts = function() {
     $http.get('http://alpha-contract-backend.herokuapp.com/contract').then((response) =>  {
       vm.myContracts = response.data
     });
