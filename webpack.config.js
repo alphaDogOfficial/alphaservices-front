@@ -12,6 +12,7 @@ var path = require('path');
  * Get npm lifecycle event to identify the environment
  */
 var ENV = process.env.npm_lifecycle_event;
+var production = process.env.NODE_ENV === 'production';
 var isTest = ENV === 'test' || ENV === 'test-watch';
 var isProd = ENV === 'build';
 
@@ -51,7 +52,8 @@ module.exports = function makeWebpackConfig () {
 
     // Output path from the view of the page
     // Uses webpack-dev-server in development
-    publicPath: isProd ? '/' : 'http://localhost:4000/',
+    // publicPath: isProd ? '/' : 'http://localhost:4000/',
+    publicPath: production ? 'alphaContracts.herokuapp.com' : 'http://localhost:4000',
 
     // Filename for entry points
     // Only adds hash in build mode

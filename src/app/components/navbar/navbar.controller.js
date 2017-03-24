@@ -49,6 +49,20 @@ var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, au
     }
   }
 
+  vm.goToNewContract = function () {
+    if(vm.isLogged = !!$localStorage.currentUser) {
+      $state.go('new-contract');
+    } else {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: 'login.html',
+        controller: 'loginCtrl',
+        controllerAs: 'login',
+        size: 'md'
+      });
+    }
+  }
+
   vm.filter = function(genero, tipo) {
     var data = {}
     data.genero = [genero]
