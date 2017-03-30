@@ -50,9 +50,5 @@ export default function productDirective($uibModal, crudService, $localStorage, 
               Valor: scope.data.Valor
     }
 
-    crudService.post("contratado", data)
-      .then(function(response) {
-        $scope.cancel();
-      })
     };
 }}}

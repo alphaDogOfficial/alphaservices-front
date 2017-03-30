@@ -3,7 +3,8 @@ var homeController = function ($rootScope, crudService, $window, $stateParams) {
   var vm = this;
   var type = $stateParams.type;
   if(type == ''){
-  	crudService.get('prestador')
+  	vm.header = "Em andamento"
+  	crudService.get('andamento')
 	.then(function(response){
 		vm.products = response.data
 
@@ -11,6 +12,7 @@ var homeController = function ($rootScope, crudService, $window, $stateParams) {
 	  console.log('error', err);
 	});
   }else{
+  	vm.header = type
   	crudService.get(type)
 	.then(function(response){
 		vm.products = response.data

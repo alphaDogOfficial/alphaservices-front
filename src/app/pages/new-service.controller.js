@@ -1,4 +1,4 @@
-var newServiceCtrl = function (crudService, authService, $state, $uibModalInstance, $scope) {
+var newServiceCtrl = function (crudService, authService, $state, $uibModalInstance, $scope, $http) {
   var vm = this;
   vm.error = false;
   $scope.names = ["Reforma", "Jardinagem", "Evento"];
@@ -18,7 +18,7 @@ var newServiceCtrl = function (crudService, authService, $state, $uibModalInstan
 
   vm.newService = function() {
     var data = {}
-    data.id = 0
+    data.id = guid()
     data.nome = vm.title
     data.descricao = vm.description
     data.tipo = vm.type
@@ -26,8 +26,13 @@ var newServiceCtrl = function (crudService, authService, $state, $uibModalInstan
 
     crudService.post("andamento", data)
       .then(function(response) {
-        $scope.cancel();
+        vm.close()
       })
+    crudService.post("anunciado", data)
+      .then(function(response) {
+        vm.close()
+      })
+    // $http.post('https://servicos-back.herokuapp.com/andamento', data).then(vm.close(), vm.close());
     console.log(data);
   };
 
@@ -78,6 +83,16 @@ var newServiceCtrl = function (crudService, authService, $state, $uibModalInstan
 
   };
 };
+
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + s4() + s4() +
+    s4() + s4() + s4() + s4();
+}
 
 export default angular.module('app.login', [])
   .controller('newServiceCtrl', newServiceCtrl)
