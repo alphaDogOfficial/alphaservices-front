@@ -1,5 +1,6 @@
 import '!ng-cache!../modals/login.html';
 import '!ng-cache!../modals/signup.html';
+import '!ng-cache!../modals/new-service.html';
 
 var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, authService, $state) {
   var vm = this;
@@ -25,6 +26,16 @@ var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, au
       templateUrl: 'signup.html',
       controller: 'loginCtrl',
       controllerAs: 'signup',
+      size: 'md'
+    });
+  };
+
+    vm.openNewService = function () {
+    var modalInstance = $uibModal.open({
+      animation: true,
+      templateUrl: 'new-service.html',
+      controller: 'newServiceCtrl',
+      controllerAs: 'newService',
       size: 'md'
     });
   };

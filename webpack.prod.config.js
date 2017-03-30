@@ -20,3 +20,4 @@ config.plugins.push(
 module.exports = config;
 // "webpack-dev-server --history-api-fallback --inline --progress --port 4000"
 // "node server.js"
+// NODE_ENV='production' webpack -p --config webpack.prod.config.js
