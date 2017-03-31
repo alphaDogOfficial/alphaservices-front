@@ -19,8 +19,10 @@
             <thead>
               <tr class="f_size_large">
                 <!--titles for td-->
-                <th>Nome do Portador</th>
+                <th>Beneficiário<</th>
+                <th>CPF</th>
                 <th>Número do Cartão</th>
+                <th>Nome do Portador</th>
                 <th>CVV</th>
                 <th>Data de Expiração</th>
                 <th>Data do pagamento</th>
@@ -34,7 +36,13 @@
                   <p class="fw_medium f_size_large color_dark">{{item.receiver}}</p>
                 </td>
                 <td>
+                  <p class="fw_medium f_size_large color_dark">{{item.cpf}}</p>
+                </td>
+                <td>
                   <p class="fw_medium f_size_large color_dark">{{item.card.card}}</p>
+                </td>
+                <td>
+                  <p class="fw_medium f_size_large color_dark">{{item.card.name}}</p>
                 </td>
                 <td>
                   <p class="fw_medium f_size_large color_dark">{{item.card.cvv}}</p>
