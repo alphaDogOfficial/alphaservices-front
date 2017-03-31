@@ -14,7 +14,7 @@ var paymentCtrl = function (crudService, $state, $scope, $http) {
   
 
    vm.cardSelected = function() {
-    vm.showCard = true
+    vm.showCard = true;
   }
 
 
