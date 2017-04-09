@@ -17,6 +17,7 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
       email:vm.user.email
     }
     console.log(formData);
+    vm.isCpfOk = true;
 
     $http
       .get("https://evening-dawn-47995.herokuapp.com/user")
@@ -31,10 +32,10 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
             $http
             .post('https://evening-dawn-47995.herokuapp.com/user', formData)
               .then((response) => {
-                  alert("Afiliação realizada com sucesso!")
+                  alert("Afiliação realizada com sucesso!");
                 }, (err)=>{
                   console.log('err', err);
-                  alert("Erro, tente novamente mais tarde")
+                  alert("Erro, tente novamente mais tarde");
                 });
             }
         });
