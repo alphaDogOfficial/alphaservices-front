@@ -6,50 +6,25 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
   vm.isLoginOk = true;
   vm.isCpfOk = true;
 
+
   vm.createUser = function () {
     var formData = {
-      nome:vm.user.nome,
+      name:vm.user.nome,
       login:vm.user.login,
-      senha:vm.user.senha,
+      password:vm.user.senha,
       cpf:vm.user.cpf,
-      telefone:vm.user.telefone,
+      phone:vm.user.telefone,
       email:vm.user.email
     }
     console.log(formData);
     $http
-      .get(TSConfig.urlBase + "cliente/check/login/" + formData.login)
-      .then( (response)=>{
-        var login = response.data;
-        $http
-          .get(TSConfig.urlBase + "cliente/check/cpf/" + formData.cpf)
-          .then( (response)=>{
-            var cpf = response.data;
-              if(!login[0]){
-                if(!cpf[0]){
-                  crudService.post('cliente', formData)
-                    .then(function(){
-                      vm.isCpfOk = true;
-                      console.log('Success!');
-                      // $state.go('home');
-                    }, function(err){
-                      console.log('err', err);
-                    });
-                }else {
-                  vm.isLoginOk = true;
-                  vm.isCpfOk = false;
-                }
-              }else {
-                vm.isLoginOk = false;
-              }
-
+      .post('https://evening-dawn-47995.herokuapp.com/payments', formData)
+        .then( (response)=>{
+            alert("Afiliação realizada com sucesso!")
           }, (err)=>{
             console.log('err', err);
+            alert("Erro, tente novamente mais tarde")
           })
-      }, (err)=>{
-        console.log('err', err);
-      })
-
-
   };
 
 }
