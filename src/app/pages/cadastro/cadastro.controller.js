@@ -18,7 +18,7 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
     }
     console.log(formData);
     $http
-      .get("http://evening-dawn-47995.herokuapp.com/user")
+      .get("https://evening-dawn-47995.herokuapp.com/user")
         .then((response)=>{
           for(user in response) {
             if(user.cpf.equals(vm.user.cpf)) {
