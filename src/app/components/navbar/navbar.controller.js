@@ -6,7 +6,6 @@ var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, au
   vm.cart = {};
   if(vm.isLogged = !!$localStorage.currentUser) {
     vm.nome = $localStorage.currentUser.nome;
-    vm.cart.qtd = $localStorage.currentUser.cart.length || 0; //TODO: ou usuario anonimo
   }
 
   vm.openLogin = function () {
