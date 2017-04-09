@@ -21,15 +21,14 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
     $http
       .get("https://evening-dawn-47995.herokuapp.com/user")
         .then((response)=>{
-          for (var user in response.data) {
-            if(user.cpf === vm.user.cpf || user.login === vm.user.login) {
+          response.data.forEach((user) => {
+            if(vm.isCpfOk && (user.cpf === vm.user.cpf || user.login === vm.user.login)) {
               alert("CPF informado já cadastrado!");
               vm.isCpfOk = false;
-              break;
             }
-          }
-          if(vm.isCpfOk == true) {
-           $http
+          });
+           if(vm.isCpfOk) {
+            $http
             .post('https://evening-dawn-47995.herokuapp.com/user', formData)
               .then((response) => {
                   alert("Afiliação realizada com sucesso!")
@@ -37,7 +36,7 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
                   console.log('err', err);
                   alert("Erro, tente novamente mais tarde")
                 });
-          } 
+            }
         });
    
   };
