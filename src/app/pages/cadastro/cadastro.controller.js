@@ -26,15 +26,16 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
               return;
             }
           }
+           $http
+            .post('https://evening-dawn-47995.herokuapp.com/user', formData)
+              .then((response) => {
+                  alert("Afiliação realizada com sucesso!")
+                }, (err)=>{
+                  console.log('err', err);
+                  alert("Erro, tente novamente mais tarde")
+                });
         });
-    $http
-      .post('https://evening-dawn-47995.herokuapp.com/user', formData)
-        .then((response) => {
-            alert("Afiliação realizada com sucesso!")
-          }, (err)=>{
-            console.log('err', err);
-            alert("Erro, tente novamente mais tarde")
-          });
+   
   };
 
 }
