@@ -57,8 +57,22 @@
         <ul class="horizontal_list main_menu clearfix">
           <li class="relative f_xs_none m_xs_bottom_5" ng-class="{current: isHomeActive}"><a ui-sref="home" class="tr_delay_hover color_light tt_uppercase" ng-click="nav.search()"><b>Início</b></a>
           </li>
-          <li class="relative f_xs_none m_xs_bottom_5" ng-class="{current: isReviewsActive}"><a class="tr_delay_hover color_light tt_uppercase"><b>Avaliações</b></a>
-            <!--sub menu-->
+          <li class="relative f_xs_none m_xs_bottom_5" ng-class="{current: isFinancesive}"><a class="tr_delay_hover color_light tt_uppercase"><b>Financeiro</b></a>
+            <div class="sub_menu_wrap top_arrow d_xs_none tr_all_hover clearfix r_corners w_xs_auto width350">
+              <div class="f_left f_xs_none">
+                <ul class="sub_menu first">
+                  <li><a ui-sref="finances({type: 'Geral'})"><b class="color_dark m_bottom_5 m_top_5 d_inline_b">Geral</b></li></a>
+                </ul>
+                <ul class="sub_menu first">
+                  <li><a class="color_dark tr_delay_hover" ui-sref="finances({type: 'Jardinagem'})">Jardinagem</a></li>
+                  <li><a class="color_dark tr_delay_hover" ui-sref="finances({type: 'Reformas'})">Reformas</a></li>
+                  <li><a class="color_dark tr_delay_hover" ui-sref="finances({type: 'Eventos'})">Eventos</a></li>
+                </ul>
+              </div>
+              <img src="../../../public/images/logo_mais_fudidao.png" width="210" class="d_sm_none f_right m_bottom_10" style="height: 150px; width: 150px">
+            </div>
+          </li>
+          <!-- <li class="relative f_xs_none m_xs_bottom_5" ng-class="{current: isReviewsActive}"><a class="tr_delay_hover color_light tt_uppercase"><b>Avaliações</b></a>
             <div class="sub_menu_wrap top_arrow d_xs_none tr_all_hover clearfix r_corners w_xs_auto width350">
               <div class="f_left f_xs_none">
                 <ul class="sub_menu first">
@@ -72,7 +86,7 @@
               </div>
               <img src="../../../public/images/logo_mais_fudidao.png" width="210" class="d_sm_none f_right m_bottom_10" style="height: 150px; width: 150px">
             </div>
-          </li>
+          </li> -->
         </ul>
       </nav>  
     </section>

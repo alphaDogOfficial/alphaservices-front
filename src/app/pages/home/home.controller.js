@@ -3,6 +3,7 @@ var homeController = function ($rootScope, crudService, $window) {
   var vm = this;
   $rootScope.isHomeActive = true;
   $rootScope.isReviewsActive = false;
+  $rootScope.isFinancesActive = false;
 
 	$rootScope.$on('rootScope:newProducts', function (event, data) {
 		vm.page = 1

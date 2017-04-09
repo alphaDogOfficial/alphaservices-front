@@ -4,7 +4,8 @@
   "description": "Frontend for TradeSports E-commerce",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "webpack-dev-server --history-api-fallback --inline --progress --port 4000",
+    "test": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -64,6 +65,7 @@
     "smoothscroll": "^0.2.2",
     "url-loader": "^0.5.7",
     "waypoints": "^4.0.0",
-    "json-server": "*"
+    "json-server": "*",
+    "angular-chart.js": "*"
   }
 }

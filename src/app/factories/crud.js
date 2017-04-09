@@ -29,6 +29,11 @@ var crudService = function ($http, $q) {
       .get(TSConfig.urlBase + table + "/nome/" + searchId)
   }
 
+  crud.getByType = function(table, type) {
+    return $http
+      .get(TSConfig.urlBase + table + "?service_type=" + type)
+  }
+
   crud.getWithFilter = function(table, formData) {
     return $http
       .post(TSConfig.urlBase + table + "/filter", formData)
