@@ -125,15 +125,82 @@ var financesController = function ($rootScope, $scope, crudService, $stateParams
 		})
 	}
 
-	function exportToCSV() {
-		var csv = json2csv({ data: $scope.revenues});
-		
-		var oWin = window.open("about:blank", "_blank");
-    oWin.document.write(csv);
-    oWin.document.close();
-    oWin.document.execCommand('SaveAs', true, "file.csv");
-    oWin.close();
+	function createJSONFromArrays(a, b) {
+		var obj = {}
+		for (var i = 0; i < a.length; i++) {
+		    obj[a[i]] = b[i]
+		}
+		return obj;
+	}
+
+	function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
+    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+    var CSV = '';    
+    
+    CSV += ReportTitle + '\r\n\n';
+
+    if (ShowLabel) {
+        var row = "";
+        for (var index in arrData[0]) {
+            row += index + ',';
+        }
+        row = row.slice(0, -1);
+        CSV += row + '\r\n';
+    }
+
+    for (var i = 0; i < arrData.length; i++) {
+        var row = "";
+        for (var index in arrData[i]) {
+            row += '"' + arrData[i][index] + '",';
+        }
+        row.slice(0, row.length - 1);
+        CSV += row + '\r\n';
+    }
+
+    if (CSV == '') {        
+        alert("Invalid data");
+        return;
+    }   
+    
+    var fileName = "MeuRelatorio";
+    fileName += ReportTitle.replace(/ /g,"_");   
+    
+    var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+    
+    var link = document.createElement("a");    
+    link.href = uri;
+    
+    link.style = "visibility:hidden";
+    link.download = fileName + ".csv";
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+	}
+
+	function exportToCSV(num) {
+		var json = [];
+    var title;
+
+		switch(num) {
+			case 0:
+				json.push(createJSONFromArrays($scope.orcLabels, $scope.orcData));
+				title = "OrçamentosXContratos"
+			break;
+			case 1:
+				json.push(createJSONFromArrays($scope.revenuesLabel, $scope.revenuesData[0]));
+				json.push(createJSONFromArrays($scope.revenuesLabel, $scope.revenuesData[1]));
+				title = "RecebidoXAReceber"
+			break;
+			case 2:
+				json.push(createJSONFromArrays($scope.contLabels, $scope.contData));
+				title = "ValoresContratos"
+			break;
+		}
+
+		JSONToCSVConvertor(json, title, true);
 	}	
+
 }
 
 export default financesController;

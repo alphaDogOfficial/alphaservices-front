@@ -23,17 +23,26 @@
           <br/><br/>
           
           <div class="col-sm-3 col-sm-offset-1">
-            <h3 class="tt_uppercase color_dark m_bottom_10 text-center">Orçamentos x Contratos</h3>
+            <div class="col-sm-9">
+              <h3 class="tt_uppercase color_dark m_bottom_10 text-center">Orçamentos x Contratos</h3>
+            </div>
+            <button ng-click="exportToCSV(0)">Export</button>
             <canvas id="doughnut" class="chart chart-doughnut" chart-data="orcData" chart-labels="orcLabels"></canvas> 
           </div>
 
           <div class="col-sm-7 col-sm-offset-1">
-            <h3 class="tt_uppercase color_dark m_bottom_10 text-center">Faturamento Mensal</h3>
+            <div class="col-sm-9">
+              <h3 class="tt_uppercase color_dark m_bottom_10 text-center">Faturamento Mensal</h3>
+            </div>
+            <button ng-click="exportToCSV(1)">Export</button>
             <canvas id="revenues" class="chart chart-line" chart-data="revenuesData" chart-labels="revenuesLabel" chart-series="revenuesSeries"></canvas>
           </div>
 
           <div class="col-sm-5">
-            <h3 class="tt_uppercase color_dark m_bottom_10 text-center">Valor dos Contratos</h3>
+            <div class="col-sm-9">
+              <h3 class="tt_uppercase color_dark m_bottom_10 text-center">Valor dos Contratos</h3>
+            </div>
+            <button ng-click="exportToCSV(2)">Export</button>
             <canvas id="bar" class="chart chart-bar" chart-data="contData" chart-labels="contLabels"></canvas>
           </div>
 
