@@ -1,7 +1,5 @@
 import '!ng-cache!./product-item-review.html';
 import '!ng-cache!../modals/product-review.html';
-import cs from 'imports?$=jquery!../custom-jquery-components/custom-select';
-
 
 export default function productReviewDirective($uibModal, crudService, $localStorage, $timeout){
     return {

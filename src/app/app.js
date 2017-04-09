@@ -8,23 +8,15 @@ const ngStorage = 'ngStorage';
 
 import routing from './app.config';
 import home from './pages/home';
-import checkout from './pages/checkout';
-import myAcc from './pages/my-account';
-import login from './pages/login/login.controller';
-import cadastro from './pages/cadastro';
-import auth from './authentication';
 import navbarCtrl from './components/navbar/navbar.controller';
 import reviews from './pages/reviews'
 import myReviews from './pages/reviews-my'
-
-import promocao from './factories/promocao';
-import prodConstants from './factories/prodConstants';
 
 //Flatastic Imports
 
 const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [uirouter, modal, ngStorage, home, login, auth, promocao, prodConstants, checkout, myAcc, cadastro, reviews, myReviews, 'ngOpbeat'])
+angular.module(MODULE_NAME, [uirouter, modal, ngStorage, home, reviews, myReviews, 'ngOpbeat'])
   .config(routing)
   .controller('navbarCtrl', navbarCtrl);
 

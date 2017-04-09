@@ -1,7 +1,7 @@
 import '!ng-cache!../modals/login.html';
 import '!ng-cache!../modals/signup.html';
 
-var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, authService, $state) {
+var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, $state) {
   var vm = this;
   vm.cart = {};
   if(vm.isLogged = !!$localStorage.currentUser) {
@@ -27,12 +27,6 @@ var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, au
       controllerAs: 'signup',
       size: 'md'
     });
-  };
-
-  vm.logout = function () {
-      authService.logout();
-      vm.isLogged = false;
-      $localStorage.anonyCart = [];
   };
 
   vm.goToMyAcc = function () {
