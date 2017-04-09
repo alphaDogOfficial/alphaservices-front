@@ -1,8 +1,10 @@
-var loginCtrl = function (crudService, authService, $state, $uibModalInstance) {
+var loginCtrl = function (crudService, authService, $state, $uibModalInstance,  $http) {
   var vm = this;
   vm.error = false;
 
   vm.login = function() {
+
+    $http.
     authService.login(vm.user, vm.password, function (result) {
       if (result === true) {
           $state.reload()

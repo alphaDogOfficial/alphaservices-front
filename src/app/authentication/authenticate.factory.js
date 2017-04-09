@@ -3,26 +3,22 @@ import TSConfig from '../factories/constants.js';
 function authService($http, $localStorage, $state, cartService) {
   var service = {};
 
-  var login = function(login, senha, callback) {
+  var login = function(login, password, callback) {
 
-    $http.post(TSConfig.urlBase + 'login/tradesports', { login: login, senha: senha })
-      .then(function (response) {
-        // login successful if there's a token in the response
-        if (response.data.token) {
-          // store login and token in local storage to keep user logged in between page refreshes
-          $localStorage.currentUser = { login: login, token: response.data.token, cpf_id: response.data.cpf_id, nome: response.data.nome, msg: response.data.message };
-          // add jwt token to auth header for all requests made by the $http service
-          $http.defaults.headers.common.Authorization = response.data.token;
-
-          // execute callback with true to indicate successful login
-          cartService.init().then(()=>{
-            callback(true);
-          });
+    $http
+    .get('https://evening-dawn-47995.herokuapp.com/user?login='+login+"&password="+password)
+      .then((response) => {
+        if(response.data != null) {
+          $localStorage.currentUser = {token: response.data.token, nome: response.data.name};
+          callback(true);
+        } else {
+          alert("Usuário ou senha não encontrados, por favor tente novamente.");
         }
       }, function(err) {
         console.log('err', err);
-        callback(false);
+        alert("Ocorreu um erro, tente novamente.")
       });
+
   }
 
   var logout = function() {
