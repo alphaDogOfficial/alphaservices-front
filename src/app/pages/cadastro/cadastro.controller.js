@@ -14,7 +14,8 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
       password:vm.user.senha,
       cpf:vm.user.cpf,
       phone:vm.user.telefone,
-      email:vm.user.email
+      email:vm.user.email,
+      token: vm.generateToken()
     }
     console.log(formData);
     vm.isCpfOk = true;
@@ -24,8 +25,10 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
         .then((response)=>{
           response.data.forEach((user) => {
             if(vm.isCpfOk && (user.cpf === vm.user.cpf || user.login === vm.user.login)) {
-              alert("CPF informado já cadastrado!");
+              alert("Login ou CPF informados já cadastrados!");
               vm.isCpfOk = false;
+            } else if (user.token === vm.user.token) {
+              user.token = vm.generateToken();
             }
           });
            if(vm.isCpfOk) {
@@ -41,6 +44,12 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
         });
    
   };
+
+  vm.generateToken = function() {
+    return Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2) ; 
+  }
+
+
 
 }
 export default cadastroCtrl;
