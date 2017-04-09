@@ -20,12 +20,12 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
     $http
       .get("https://evening-dawn-47995.herokuapp.com/user")
         .then((response)=>{
-          for(user in response.data) {
+          response.data.forEach((user) => {
             if(user.cpf === vm.user.cpf || user.login === vm.user.login) {
               alert("CPF informado já cadastrado!");
               return;
             }
-          }
+          });
            $http
             .post('https://evening-dawn-47995.herokuapp.com/user', formData)
               .then((response) => {
