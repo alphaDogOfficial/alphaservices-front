@@ -50,6 +50,7 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
   }
 
   vm.loginUser = function() {
+    console.log(vm.user);
     if (vm.user.login != null && vm.user.password != null) {
 
        $http
