@@ -84,12 +84,12 @@
           <table class="table table-striped">
             <thead>
               <tr style="font-weight: bold;">
-                <th ng-repeat="label in tableLabel">label</th>
+                <th ng-repeat="label in tableLabel">{{label}}</th>
               </tr>
             </thead>
             <tbody>
               <tr ng-repeat="item in items">
-                <td>{{item.value}}</td>
+                <td>R$ {{item.value}}</td>
                 <td ng-if="type == 'Orçamentos'">{{item.accepted == "true" ? 'Sim' : 'Não'}}</td>
                 <td>{{item.service_type}}</td>
                 <td>{{item.month}}</td>
