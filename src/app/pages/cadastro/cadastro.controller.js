@@ -1,10 +1,15 @@
 import TSConfig from '../../factories/constants.js';
 
-var cadastroCtrl = function (crudService, $state, $scope, $http, $localStorage) {
+var cadastroCtrl = function (crudService, $state, $scope, $http, $localStorage, authService) {
   var vm = this;
   vm.user = {};
   vm.isLoginOk = true;
   vm.isCpfOk = true;
+
+  if(vm.isLogged = !!$localStorage.currentUser) {
+    vm.nome = $localStorage.currentUser.nome;
+  }
+
 
 
   vm.createUser = function () {
@@ -69,7 +74,14 @@ var cadastroCtrl = function (crudService, $state, $scope, $http, $localStorage) 
           });
       }
 
-  } 
+  }
+
+  vm.logout = function () {
+      authService.logout();
+      vm.isLogged = false;
+      $localStorage.anonyCart = [];
+  };
+ 
 
 
 
