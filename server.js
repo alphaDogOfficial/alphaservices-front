@@ -12,19 +12,7 @@ if(process.env.NODE_ENV !== 'production') {
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/dist/index.html')
-});
-
-app.get('/home', function(request, response) {
-  response.sendFile(__dirname + '/dist/index.html')
-});
-
-app.get('/newContract', function(request, response) {
-  response.sendFile(__dirname + '/dist/index.html')
-});
-
-app.get('/myContracts', function(request, response) {
+app.get('/*', function(request, response) {
   response.sendFile(__dirname + '/dist/index.html')
 });
 
