@@ -4365,3 +4365,7 @@ only screen and (min-resolution: 144 dpi){
 .width350 {
 	width: 350px;
 }
+
+.width425 {
+	width: 425px !important;
+}

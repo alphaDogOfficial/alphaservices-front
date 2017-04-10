@@ -58,7 +58,7 @@
           <li class="relative f_xs_none m_xs_bottom_5" ng-class="{current: isHomeActive}"><a ui-sref="home" class="tr_delay_hover color_light tt_uppercase" ng-click="nav.search()"><b>Início</b></a>
           </li>
           <li class="relative f_xs_none m_xs_bottom_5" ng-class="{current: isFinancesive}"><a class="tr_delay_hover color_light tt_uppercase"><b>Financeiro</b></a>
-            <div class="sub_menu_wrap top_arrow d_xs_none tr_all_hover clearfix r_corners w_xs_auto width350">
+            <div class="sub_menu_wrap top_arrow d_xs_none tr_all_hover clearfix r_corners w_xs_auto width425">
               <div class="f_left f_xs_none">
                 <ul class="sub_menu first">
                   <li><a ui-sref="finances({type: 'Geral'})"><b class="color_dark m_bottom_5 m_top_5 d_inline_b">Geral</b></li></a>
@@ -67,6 +67,14 @@
                   <li><a class="color_dark tr_delay_hover" ui-sref="finances({type: 'Jardinagem'})">Jardinagem</a></li>
                   <li><a class="color_dark tr_delay_hover" ui-sref="finances({type: 'Reformas'})">Reformas</a></li>
                   <li><a class="color_dark tr_delay_hover" ui-sref="finances({type: 'Eventos'})">Eventos</a></li>
+                </ul>
+              </div>
+              <div class="f_left m_left_10 m_xs_left_0 f_xs_none">
+                <b class="color_dark m_left_20 m_bottom_5 m_top_5 d_inline_b">Tabelas</b>
+                <ul class="sub_menu">
+                  <li><a class="color_dark tr_delay_hover" ui-sref="finances({type: 'Orçamentos'})">Orçamentos</a></li>
+                  <li><a class="color_dark tr_delay_hover" ui-sref="finances({type: 'Contratos'})">Contratos</a></li>
+                  <li><a class="color_dark tr_delay_hover" ui-sref="finances({type: 'Faturamentos'})">Faturamentos</a></li>
                 </ul>
               </div>
               <img src="../../../public/images/logo_mais_fudidao.png" width="210" class="d_sm_none f_right m_bottom_10" style="height: 150px; width: 150px">

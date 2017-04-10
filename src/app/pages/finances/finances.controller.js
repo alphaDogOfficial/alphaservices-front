@@ -8,7 +8,7 @@ var financesController = function ($rootScope, $scope, crudService, $stateParams
 
   $scope.exportToCSV = exportToCSV;
 
-  if($scope.type !== "Geral") {
+  if($scope.type !== "Geral" && $scope.type !== "Orçamentos" && $scope.type !== "Contratos" && $scope.type !== "Faturamentos") {
 		crudService.getByType("budget", $scope.type)
 			.then(function(response) {
 				$scope.budgets = response.data
@@ -40,12 +40,26 @@ var financesController = function ($rootScope, $scope, crudService, $stateParams
 						.then(function(response) {
 							$scope.revenues = response.data
 
+							getTables();
 							getMonthlyReport()
 							getBudgetStudy();
 							getContractValueStudy();
 						})
 				})
 			})
+	}
+
+	function getTables() {
+		$scope.tableLabel = ["Valor", "Serviço", "Mês"]
+
+		if($scope.type === 'Orçamentos') {
+			$scope.items = $scope.budgets
+			$scope.tableLabel = ["Valor", "Aceito", "Serviço", "Mês"]
+		}
+		else if($scope.type === 'Contratos')
+			$scope.items = $scope.contracts
+		else
+			$scope.items = $scope.revenues
 	}
 
 	function getMonthlyReport() {
@@ -194,6 +208,10 @@ var financesController = function ($rootScope, $scope, crudService, $stateParams
 				json.push(createJSONFromArrays($scope.revenuesLabel, $scope.revenuesData[0]));
 				json.push(createJSONFromArrays($scope.revenuesLabel, $scope.revenuesData[1]));
 				title = "RecebidoXAReceber"
+			break;
+			case 3:
+				json = $scope.items
+				title = $scope.type;
 			break;
 		}
 
