@@ -1,6 +1,6 @@
 import TSConfig from '../../factories/constants.js';
 
-var cadastroCtrl = function (crudService, $state, $scope, $http) {
+var cadastroCtrl = function (crudService, $state, $scope, $http, $localStorage) {
   var vm = this;
   vm.user = {};
   vm.isLoginOk = true;
@@ -57,7 +57,8 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
         .get('https://evening-dawn-47995.herokuapp.com/user?login='+vm.user.login+"&password="+vm.user.password)
           .then((response) => {
             if(response.data != null) {
-              $localStorage.currentUser = {token: response.data.token, nome: response.data.name};
+
+              $localStorage.currentUser = {token: response.data[0].token, nome: response.data[0].name};
               
             } else {
               alert("Usuário ou senha não encontrados, por favor tente novamente.");
