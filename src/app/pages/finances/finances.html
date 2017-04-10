@@ -23,10 +23,16 @@
           <br/><br/>
           
           <div class="col-sm-3 col-sm-offset-1">
-            <div class="col-sm-9">
+            <div class="col-sm-7">
               <h3 class="tt_uppercase color_dark m_bottom_10 text-center">Orçamentos x Contratos</h3>
             </div>
-            <button ng-click="exportToCSV(0)">Export</button>
+            <div class="col-sm-4 col-sm-offset-1">
+              <a role="button" ng-click="exportToCSV(0)" class="button_type_3 color_light bg_scheme_color d_block r_corners tr_delay_hover box_s_none" style="width: 5.5rem">
+                <span class="d_inline_middle shop_icon" style="margin: 0px">
+                  CSV
+                </span>
+              </a>
+            </div>
             <canvas id="doughnut" class="chart chart-doughnut" chart-data="orcData" chart-labels="orcLabels"></canvas> 
           </div>
 
@@ -34,7 +40,13 @@
             <div class="col-sm-9">
               <h3 class="tt_uppercase color_dark m_bottom_10 text-center">Valor dos Contratos</h3>
             </div>
-            <button ng-click="exportToCSV(2)">Export</button>
+            <div class="col-sm-2 col-sm-offset-1">
+              <a role="button" ng-click="exportToCSV(1)" class="button_type_3 color_light bg_scheme_color d_block r_corners tr_delay_hover box_s_none" style="width: 5.5rem">
+                <span class="d_inline_middle shop_icon" style="margin: 0px">
+                  CSV
+                </span>
+              </a>
+            </div>
             <canvas id="bar" class="chart chart-bar" chart-data="contData" chart-labels="contLabels"></canvas>
           </div>
 
@@ -44,12 +56,15 @@
             <div class="col-sm-9">
               <h3 class="tt_uppercase color_dark m_bottom_10 text-center">Faturamento Mensal</h3>
             </div>
-            <button ng-click="exportToCSV(1)">Export</button>
+            <div class="col-sm-1 col-sm-offset-2">
+              <a role="button" ng-click="exportToCSV(2)" class="button_type_3 color_light bg_scheme_color d_block r_corners tr_delay_hover box_s_none" style="width: 5.5rem">
+                <span class="d_inline_middle shop_icon" style="margin: 0px">
+                  CSV
+                </span>
+              </a>
+            </div>
             <canvas id="revenues" class="chart chart-line" chart-data="revenuesData" chart-labels="revenuesLabel" chart-series="revenuesSeries"></canvas>
           </div>
-
-          <!--banners-->
-          <div ng-include="'slim-banner.html'"></div>
 
         </section>
       </div>

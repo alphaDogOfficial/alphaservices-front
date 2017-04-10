@@ -1,4 +1,3 @@
-var json2csv = require('json2csv');
 var financesController = function ($rootScope, $scope, crudService, $stateParams) {
   var vm = this;
   $rootScope.isFinancesActive = true;
@@ -188,13 +187,13 @@ var financesController = function ($rootScope, $scope, crudService, $stateParams
 				title = "OrçamentosXContratos"
 			break;
 			case 1:
+				json.push(createJSONFromArrays($scope.contLabels, $scope.contData));
+				title = "ValoresContratos"
+			break;
+			case 2:
 				json.push(createJSONFromArrays($scope.revenuesLabel, $scope.revenuesData[0]));
 				json.push(createJSONFromArrays($scope.revenuesLabel, $scope.revenuesData[1]));
 				title = "RecebidoXAReceber"
-			break;
-			case 2:
-				json.push(createJSONFromArrays($scope.contLabels, $scope.contData));
-				title = "ValoresContratos"
 			break;
 		}
 
