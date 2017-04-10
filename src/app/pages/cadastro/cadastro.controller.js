@@ -49,6 +49,26 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
     return Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2) ; 
   }
 
+  vm.loginUser = function() {
+    if (vm.user.login != null && vm.user.password != null) {
+
+       $http
+        .get('https://evening-dawn-47995.herokuapp.com/user?login='+vm.user.login+"&password="+password)
+          .then((response) => {
+            if(response.data != null) {
+              $localStorage.currentUser = {token: response.data.token, nome: response.data.name};
+              
+            } else {
+              alert("Usuário ou senha não encontrados, por favor tente novamente.");
+            }
+          }, function(err) {
+            console.log('err', err);
+            alert("Ocorreu um erro, tente novamente.")
+          });
+      }
+
+  } 
+
 
 
 }

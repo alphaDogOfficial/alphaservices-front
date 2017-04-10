@@ -9,6 +9,12 @@ export default function routes($stateProvider) {
       templateUrl: 'cadastro.html',
       controller: 'cadastroCtrl',
       controllerAs: 'cadVm'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'login.html',
+      controller: 'cadastroCtrl',
+      controllerAs: 'cadVm'
     });
 
 }
