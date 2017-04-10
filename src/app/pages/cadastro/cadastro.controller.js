@@ -54,7 +54,7 @@ var cadastroCtrl = function (crudService, $state, $scope, $http) {
     if (vm.user.login != null && vm.user.password != null) {
 
        $http
-        .get('https://evening-dawn-47995.herokuapp.com/user?login='+vm.user.login+"&password="+password)
+        .get('https://evening-dawn-47995.herokuapp.com/user?login='+vm.user.login+"&password="+vm.user.password)
           .then((response) => {
             if(response.data != null) {
               $localStorage.currentUser = {token: response.data.token, nome: response.data.name};
