@@ -59,14 +59,15 @@
           <li class="current relative f_xs_none m_xs_bottom_5"><a ui-sref="home({type: ''})" class="tr_delay_hover color_light tt_uppercase" ng-click="nav.search()" ><b>Início</b></a>
           </li>
           <li class="relative f_xs_none m_xs_bottom_5"><a ng-click="nav.openNewService()" ui-sref="home" class="tr_delay_hover color_light tt_uppercase"><b>Anunciar Serviço</b></a>
-          <li class="relative f_xs_none m_xs_bottom_5"><a ng-click="nav.search()" ui-sref="home" class="tr_delay_hover color_light tt_uppercase"><b>Categorias</b></a>
+          <li class="relative f_xs_none m_xs_bottom_5"><a ng-click="nav.search()" ui-sref="home({type: 'anunciado'})" class="tr_delay_hover color_light tt_uppercase"><b>Serviços Anunciados</b></a>
+          <li class="relative f_xs_none m_xs_bottom_5"><a ng-click="nav.search()" ui-sref="home({type: 'contratado'})" class="tr_delay_hover color_light tt_uppercase"><b>Serviços Contratados</b></a>
+          <li class="relative f_xs_none m_xs_bottom_5"><a ng-click="nav.search()" ui-sref="home" class="tr_delay_hover color_light tt_uppercase"><b>Gestão de Serviços</b></a>
             <!--sub menu-->
             <div class="sub_menu_wrap top_arrow d_xs_none tr_all_hover clearfix r_corners w_xs_auto">
               <div class="f_left f_xs_none">
                 <b class="color_dark m_left_20 m_bottom_5 m_top_5 d_inline_b">Serviços</b>
                 <ul class="sub_menu first">
                   <li><a class="color_dark tr_delay_hover" ui-sref="home({type: 'andamento'})" )>Em andamento</a></li>
-                  <li><a class="color_dark tr_delay_hover" ui-sref="home({type: 'contratado'})" >Contratados</a></li>
                   <li><a class="color_dark tr_delay_hover" ui-sref="home({type: 'anunciado'})")>Anunciados</a></li>
                 </ul>
               </div>

@@ -3,7 +3,7 @@ import '!ng-cache!../modals/product-details.html';
 import cs from 'imports?$=jquery!../custom-jquery-components/custom-select';
 
 
-export default function productDirective($uibModal, crudService, $localStorage, prodConstants, $timeout, cartService){
+export default function productDirective($uibModal, crudService, $localStorage, prodConstants, $timeout, cartService, $window){
     return {
         restrict: 'E',
         templateUrl: 'product-item.html', // markup for template
@@ -19,20 +19,19 @@ export default function productDirective($uibModal, crudService, $localStorage, 
           scope.tamanhosDisponiveis = prodConstants.tamanhos;
 
           scope.open = function (item) {
-          	scope.emEstoque = scope.data.quantidade > 0
-          	scope.semEstoque = scope.data.quantidade === 0
+          	scope.categoria = scope.data.categoria
 
-          	if(scope.emEstoque) {
+          	if(scope.categoria == 'anunciado') {
           		scope.data.estoque = 'em estoque'
           	} else {
-          		scope.data.estoque = 'sem estoque'
-          	};
-            modalInstance = $uibModal.open({
+          		modalInstance = $uibModal.open({
               animation: true,
               templateUrl: 'product-details.html',
               size: 'lg',
               scope: scope
             }).opened.then(()=>{$timeout(()=>{cs();}, 0)});
+          	};
+            
           };
 
           scope.updateQtd = function(qtd) {
@@ -49,6 +48,20 @@ export default function productDirective($uibModal, crudService, $localStorage, 
               responsavel: scope.data.responsavel,
               Valor: scope.data.Valor
     }
+
+    };
+    scope.deleteItem = function(){
+            var data = scope.data
+            crudService.delete("andamento", data.id)
+              .then(function(response) {
+              vm.close()
+            })
+            crudService.delete("anunciado", data.id)
+              .then(function(response) {
+              $window.location.reload()
+              vm.close()
+            })
+            
 
     };
 }}}

@@ -13,7 +13,7 @@
       <h5 class="m_bottom_10"><a href="#" class="color_dark">{{data.valor}}</a></h5>
       <!-- <p class="scheme_color f_size_large m_bottom_15">R${{data.valor}}.00</p> -->
       
-      <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0 m_bottom_15" ng-click="putInCart()" >Cancelar</button>
+      <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0 m_bottom_15" ng-click="deleteItem()" ng-show="!({{data.contratado}} == contratado)">Cancelar</button>
       <!-- <div class="clearfix m_bottom_5">
         <ul class="horizontal_list d_inline_b l_width_divider">
           <li class="m_right_15 f_md_none m_md_right_0"><a href="#" class="color_dark">Add to Wishlist</a></li>

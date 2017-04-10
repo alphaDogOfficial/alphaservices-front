@@ -1,7 +1,7 @@
-var newServiceCtrl = function (crudService, authService, $state, $uibModalInstance, $scope, $http) {
+var newServiceCtrl = function (crudService, authService, $state, $uibModalInstance, $scope, $http, $window) {
   var vm = this;
   vm.error = false;
-  $scope.names = ["Reforma", "Jardinagem", "Evento"];
+  $scope.names = ["Reforma", "Jardinagem"];
   vm.servico = function() {
     authService.login(vm.user, vm.password, function (result) {
       if (result === true) {
@@ -23,15 +23,18 @@ var newServiceCtrl = function (crudService, authService, $state, $uibModalInstan
     data.descricao = vm.description
     data.tipo = vm.type
     data.valor = "Em andamento"
+    data.categoria = "anunciado"
 
     crudService.post("andamento", data)
       .then(function(response) {
-        vm.close()
-      })
-    crudService.post("anunciado", data)
+        crudService.post("anunciado", data)
       .then(function(response) {
+        $window.location.reload()
         vm.close()
       })
+        
+      })
+
     // $http.post('https://servicos-back.herokuapp.com/andamento', data).then(vm.close(), vm.close());
     console.log(data);
   };
