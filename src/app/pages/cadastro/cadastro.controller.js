@@ -64,6 +64,7 @@ var cadastroCtrl = function (crudService, $state, $scope, $http, $localStorage, 
             if(response.data != null) {
 
               $localStorage.currentUser = {token: response.data[0].token, nome: response.data[0].name};
+              $state.go('home');
               
             } else {
               alert("Usuário ou senha não encontrados, por favor tente novamente.");
