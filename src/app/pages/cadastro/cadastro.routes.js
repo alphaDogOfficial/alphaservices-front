@@ -12,7 +12,7 @@ export default function routes($stateProvider) {
     })
     .state('login', {
       url: '/login',
-      templateUrl: 'login.html',
+      templateUrl: 'login_page.html',
       controller: 'cadastroCtrl',
       controllerAs: 'cadVm'
     });
