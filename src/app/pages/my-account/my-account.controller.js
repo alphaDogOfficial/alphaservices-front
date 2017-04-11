@@ -1,4 +1,4 @@
-var myAccCtrl = function (crudService, $localStorage) {
+var myAccCtrl = function (crudService, $localStorage, $http) {
   var vm = this;
   vm.novoEnd = {};
   vm.novoEnd.nome = 'casa';
