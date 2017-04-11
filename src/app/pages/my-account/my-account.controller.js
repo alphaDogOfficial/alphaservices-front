@@ -23,17 +23,30 @@ var myAccCtrl = function (crudService, $localStorage, $http) {
               });
     }
 
-
-
-  crudService.getById('endereco', $localStorage.currentUser.cpf_id)
-    .then((response)=>{
-      vm.enderecos = response.data;
-      console.log('user> ', vm.enderecos);
-    });
-
-
   vm.saveUserData = function(){
     $localStorage.currentUser.nome = vm.user.nome;
+
+    var formData = {
+      name:vm.user.nome,
+      login:vm.user.login,
+      password:vm.user.senha,
+      cpf:vm.user.cpf,
+      phone:vm.user.telefone,
+      email:vm.user.email,
+      token: vm.user.token,
+      id: vm.user.id
+    }
+
+    $http
+      .put('https://evening-dawn-47995.herokuapp.com/user', formData)
+        .then((response) => {
+            alert("Usuário editado com sucesso!");
+            $state.go("home")
+          }, (err)=>{
+            console.log('err', err);
+            alert("Erro, tente novamente mais tarde");
+          });
+
 
 
     crudService.update('cliente', vm.user.cpf, vm.user).then(()=>{
@@ -42,30 +55,6 @@ var myAccCtrl = function (crudService, $localStorage, $http) {
       console.log('deu pau loko', err)
     })
   }
-
-  vm.SalvarNovoEnd = function () {
-    console.log('enviando: ', vm.novoEnd);
-    vm.novoEnd.cpf_cliente = $localStorage.currentUser.cpf_id;
-    crudService.post('endereco', vm.novoEnd)
-      .then((response)=>{
-        console.log(response);
-      });
-
-    crudService.getById('cliente', $localStorage.currentUser.cpf_id)
-      .then((response)=>{
-        vm.user = response.data[0];
-        console.log('user> ', vm.user.nome);
-        console.log(response.data[0]);
-      });
-
-  }
-
-  crudService.getById('compraByClient', $localStorage.currentUser.cpf_id)
-    .then((response)=>{
-      vm.compras = response.data;
-      console.log('user> ', response.data);
-    });
-
 
 }
 
