@@ -6,9 +6,13 @@ var budgetCtrl = function (crudService, $state, $scope, $http) {
   vm.isLoginOk = true;
   vm.isCpfOk = true;
   vm.showCard = false;
-  $http.get('http://alpha-budget-backend.herokuapp.com/budget').then((response) =>  {
-    vm.myBudgets = response.data
-  });
+  // $http.get('http://alpha-budget-backend.herokuapp.com/budget').then((response) =>  {
+  //   vm.myBudgets = response.data
+  // });
+
+    $scope.states = ('Integrador Fornecedor').split(' ').map(function(state) {
+        return {abbrev: state};
+      });
 
   vm.processNewContract = function () {
     if (vm.card == null) {
