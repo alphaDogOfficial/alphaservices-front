@@ -22,7 +22,7 @@
                   <ul>
                     <li class="m_bottom_15">
                       <label for="c_name_2" class="d_inline_b m_bottom_5">Nome</label>
-                      <input type="text" name="nome" ng-model="accVm.user.nome" class="r_corners full_width">
+                      <input type="text" name="nome" ng-model="accVm.user.name" class="r_corners full_width">
                     </li>
                     <li class="m_bottom_15">
                       <label for="a_name_1" class="d_inline_b m_bottom_5">CPF</label>
@@ -42,63 +42,7 @@
               </div>
             </div>
 
-            <div class="row clearfix">
-              <div class="col-lg-6 col-md-6 col-sm-6">
-                <h5 class="fw_medium m_bottom_15">Novo Endereço</h5>
-                <form>
-                  <ul>
-                    <li class="m_bottom_15">
-                      <label for="c_name_2" class="d_inline_b m_bottom_5">Nome</label>
-                      <input type="text" name="novoEndNome" ng-model="accVm.novoEnd.nome" class="r_corners full_width">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="a_name_1" class="d_inline_b m_bottom_5">Rua</label>
-                      <input type="text"  name="rua" ng-model="accVm.novoEnd.rua" class="r_corners full_width">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="f_name_2" class="d_inline_b m_bottom_5">numero</label>
-                      <input type="text" name="numero" ng-model="accVm.novoEnd.numero" class="r_corners full_width">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="m_name_2" class="d_inline_b m_bottom_5">Bairro</label>
-                      <input type="text" name="bairro" ng-model="accVm.novoEnd.bairro" class="r_corners full_width">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="m_name_2" class="d_inline_b m_bottom_5">Cidade</label>
-                      <input type="text" name="cidade" ng-model="accVm.novoEnd.cidade" class="r_corners full_width">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="m_name_2" class="d_inline_b m_bottom_5">Estado</label>
-                      <input type="text" name="estado" ng-model="accVm.novoEnd.estado" class="r_corners full_width">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="m_name_2" class="d_inline_b m_bottom_5">País</label>
-                      <input type="text" name="pais" ng-model="accVm.novoEnd.pais" class="r_corners full_width">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="m_name_2" class="d_inline_b m_bottom_5">CEP</label>
-                      <input type="text" name="cep" ng-model="accVm.novoEnd.cep" class="r_corners full_width">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="m_name_2" class="d_inline_b m_bottom_5">Complemento</label>
-                      <input type="text" name="complemento" ng-model="accVm.novoEnd.complemento" class="r_corners full_width">
-                    </li>
-                  </ul>
-                </form>
-                <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-click="accVm.SalvarNovoEnd()">Salvar</button>
-              </div>
-
-              <div class="col-lg-6 col-md-6 col-sm-6">
-                <h5 class="fw_medium m_bottom_15"> Endereços cadastrados: </h5>
-                <div ng-repeat="end in accVm.enderecos">
-                  <p> <strong>{{end.nome}}</strong> </p>
-                  <p>
-                    {{end.rua}}
-                  </p>
-                </br>
-                </div>
-              </div>
-            </div>
+           
 
           </div>
 
