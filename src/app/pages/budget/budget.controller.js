@@ -9,7 +9,7 @@ var budgetCtrl = function (crudService, $state, $scope, $http) {
   // $http.get('http://alpha-budget-backend.herokuapp.com/budget').then((response) =>  {
   //   vm.myBudgets = response.data
   // });
-  
+
   vm.empreiteiros = [
     {name: 'Empreiteiro 1'},
     {name: 'Empreiteiro 1'},

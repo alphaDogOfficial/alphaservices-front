@@ -1,0 +1,59 @@
+<!--wide layout-->
+<div class="wide_layout relative">
+  <div class="page_content_offset">
+    <div class="container">
+      <div class="row clearfix">
+        <!--left content column-->
+        <section class="col-lg-12 col-md-12 col-sm-12 m_xs_bottom_30">
+          <h2 class="tt_uppercase color_dark m_bottom_25">Orçamentos</h2>
+          <!--contractCtrl table-->
+          <table class="table_type_6 responsive_table full_width r_corners wraper shadow t_align_l t_xs_align_c m_bottom_30">
+            <thead>
+              <tr class="f_size_large">
+                <!--titles for td-->
+                <th>Valor a Pagar</th>
+                <th>Numero de Parcelas</th>
+                <th>Beneficiario</th>
+                <th>CPF</th>
+                <th>Nome do Portador</th>
+                <th>Numero do Cartao</th>
+                <th>CVV</th>
+                <th>Data</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p class="fw_medium f_size_large color_dark">{{data.valor}}</p>
+                </td>
+                <td>
+                  <p class="fw_medium f_size_large color_dark">{{data.parcelos}}</p>
+                </td>
+                <td>
+                  <p class="fw_medium f_size_large
+                    color_dark">{{data.beneficiario}}</p>
+                </td>
+                <td>
+                  <p class="fw_medium f_size_large color_dark">{{data.cpf}}</p>
+                </td>
+                <td>
+                  <p class="fw_medium f_size_large color_dark">{{data.portador}}</p>
+                </td>
+                <td>
+                  <p class="fw_medium f_size_large color_dark">{{data.cartao}}</p>
+                </td>
+                <td>
+                  <p class="fw_medium f_size_large color_dark">{{data.cvv}}</p>
+                </td>
+                <td>
+                  <p class="fw_medium f_size_large color_dark">{{data.dia}}</p>
+                </td>
+            </tbody>
+          </table>
+         </section>
+        <!--right column-->
+      </div>
+    </div>
+  </div>
+  <!--markup footer-->
+</div>

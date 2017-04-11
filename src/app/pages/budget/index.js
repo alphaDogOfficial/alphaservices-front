@@ -22,7 +22,9 @@ import 'imports?$=jquery!../../../js/flatastic.js';
 
 import routing from './budget.routes';
 import contractCtrl from './budget.controller';
+import paunoseucuCtrl from './detailBudget.controller';
 export default angular.module('app.budget', [uirouter, crudService])
   .config(routing)
   .controller('budgetCtrl', contractCtrl)
+  .controller('detailCtrl', paunoseucuCtrl)
   .name; //Exporta o nome do modulo pra poder por na injecao de dependencia do angular
