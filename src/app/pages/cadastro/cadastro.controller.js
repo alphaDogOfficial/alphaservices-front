@@ -10,8 +10,6 @@ var cadastroCtrl = function (crudService, $state, $scope, $http, $localStorage, 
     vm.nome = $localStorage.currentUser.nome;
   }
 
-
-
   vm.createUser = function () {
     var formData = {
       name:vm.user.nome,
@@ -41,6 +39,7 @@ var cadastroCtrl = function (crudService, $state, $scope, $http, $localStorage, 
             .post('https://evening-dawn-47995.herokuapp.com/user', formData)
               .then((response) => {
                   alert("Afiliação realizada com sucesso!");
+                  $state.go("home")
                 }, (err)=>{
                   console.log('err', err);
                   alert("Erro, tente novamente mais tarde");
@@ -61,7 +60,7 @@ var cadastroCtrl = function (crudService, $state, $scope, $http, $localStorage, 
        $http
         .get('https://evening-dawn-47995.herokuapp.com/user?login='+vm.user.login+"&password="+vm.user.password)
           .then((response) => {
-            if(response.data != null) {
+            if(response.data != null && response.data.length>0) {
 
               $localStorage.currentUser = {token: response.data[0].token, nome: response.data[0].name};
               $state.go('home');

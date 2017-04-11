@@ -7,11 +7,7 @@
           <p class="f_size_small" ng-if="!nav.isLogged">Bem vindo visitante, você pode	<a href="#" ui-sref="login">Entrar</a> ou <a ui-sref="cadastro">Criar uma Conta</a> </p>
           <p class="f_size_small" ng-if="nav.isLogged">Bem vindo <strong>{{nav.nome}}</strong>, deseja	<a href="#" ng-click="nav.logout()">Sair?</a> </p>
         </div>
-        <nav class="col-lg-4 col-md-4 col-sm-6 t_align_c t_xs_align_c">
-          <ul class="d_inline_b horizontal_list clearfix f_size_small users_nav">
-            <li><a ng-click="nav.goToMyAcc()" href="#" class="default_t_color">Minha Conta</a></li>
-          </ul>
-        </nav>
+        
       </div>
     </div>
   </section>
