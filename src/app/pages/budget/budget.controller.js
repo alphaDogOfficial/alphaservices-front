@@ -9,7 +9,24 @@ var budgetCtrl = function (crudService, $state, $scope, $http) {
   // $http.get('http://alpha-budget-backend.herokuapp.com/budget').then((response) =>  {
   //   vm.myBudgets = response.data
   // });
+  
+  vm.empreiteiros = [
+    {name: 'Empreiteiro 1'},
+    {name: 'Empreiteiro 1'},
+    {name: 'Empreiteiro 1'},
+    {name: 'Empreiteiro 1'},
+    {name: 'Empreiteiro 1'},
+    {name: 'Empreiteiro 1'}
+  ]
 
+  vm.clientes = [
+    {name: 'Cliente 1'},
+    {name: 'Cliente 1'},
+    {name: 'Cliente 1'},
+    {name: 'Cliente 1'},
+    {name: 'Cliente 1'},
+    {name: 'Cliente 1'}
+  ]
     $scope.states = ('Integrador Fornecedor').split(' ').map(function(state) {
         return {abbrev: state};
       });
