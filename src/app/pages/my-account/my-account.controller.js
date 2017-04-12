@@ -17,7 +17,7 @@ var myAccCtrl = function (crudService, $localStorage, $http,  $state) {
     }
 
   vm.saveUserData = function(){
-    $localStorage.currentUser.nome = vm.user.nome;
+    $localStorage.currentUser.nome = vm.user.name;
 
     var formData = {
       name:vm.user.name,
