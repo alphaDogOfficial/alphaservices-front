@@ -1,15 +1,5 @@
-var myAccCtrl = function (crudService, $localStorage, $http) {
+var myAccCtrl = function (crudService, $localStorage, $http,  $state) {
   var vm = this;
-  vm.novoEnd = {};
-  vm.novoEnd.nome = 'casa';
-  vm.novoEnd.rua = 'navajas';
-  vm.novoEnd.numero = '13';
-  vm.novoEnd.bairro = 'centro';
-  vm.novoEnd.cidade = 'mogi';
-  vm.novoEnd.estado = 'sao paulo';
-  vm.novoEnd.pais = 'Brasil';
-  vm.novoEnd.cep = '08710250';
-  vm.novoEnd.complemento = 'apto 133';
 
     if($localStorage.currentUser != null) {
         $http
@@ -20,7 +10,10 @@ var myAccCtrl = function (crudService, $localStorage, $http) {
               }
             }, (err) => {
                 console.log(err);
+                alert("ocorreu um erro, por favor tente novamente.")
               });
+    } else {
+      $state.go("home");
     }
 
   vm.saveUserData = function(){
@@ -33,12 +26,11 @@ var myAccCtrl = function (crudService, $localStorage, $http) {
       cpf:vm.user.cpf,
       phone:vm.user.telefone,
       email:vm.user.email,
-      token: vm.user.token,
-      id: vm.user.id
+      token: vm.user.token
     }
 
     $http
-      .put('https://evening-dawn-47995.herokuapp.com/user', formData)
+      .put('https://evening-dawn-47995.herokuapp.com/user/'+vm.user.id, formData)
         .then((response) => {
             alert("Usuário editado com sucesso!");
             $state.go("home")
@@ -46,14 +38,6 @@ var myAccCtrl = function (crudService, $localStorage, $http) {
             console.log('err', err);
             alert("Erro, tente novamente mais tarde");
           });
-
-
-
-    crudService.update('cliente', vm.user.cpf, vm.user).then(()=>{
-      alert('sucesso!');
-    }, (err)=>{
-      console.log('deu pau loko', err)
-    })
   }
 
 }
