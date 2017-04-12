@@ -22,7 +22,9 @@ import 'imports?$=jquery!../../../js/flatastic.js';
 
 import routing from './cadastro.routes';
 import cadastroCtrl from './cadastro.controller';
+import authCtrl from './auth.controller';
 export default angular.module('app.cadastro', [uirouter, crudService])
   .config(routing)
   .controller('cadastroCtrl', cadastroCtrl)
+  .controller('authCtrl', authCtrl)
   .name; //Exporta o nome do modulo pra poder por na injecao de dependencia do angular

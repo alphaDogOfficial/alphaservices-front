@@ -23,7 +23,7 @@ var authCtrl = function (crudService, $state, $scope, $http, $localStorage, auth
       });
   }
 
-  return {"oi", "1"}
+  return {"oi": "1"}
   
 
 
