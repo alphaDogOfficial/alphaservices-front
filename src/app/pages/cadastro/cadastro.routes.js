@@ -21,7 +21,7 @@ export default function routes($stateProvider) {
     .state('auth', {
       url: '/auth',
       controller: 'authCtrl',
-      params : ['login', 'password']  
+      params : {login:null, password:null}  
     });
 
 
