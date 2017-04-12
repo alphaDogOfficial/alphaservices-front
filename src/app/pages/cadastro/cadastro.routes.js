@@ -17,6 +17,13 @@ export default function routes($stateProvider) {
       templateUrl: 'login_page.html',
       controller: 'cadastroCtrl',
       controllerAs: 'cadVm'
+    })
+    .state('auth', {
+      url: '/auth',
+      controller: 'authCtrl',
+      params : ['login', 'password']  
     });
+
+
 
 }
