@@ -20,37 +20,38 @@
                 <form>
                   <ul>
                     <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5">Valor a Pagar</label>
-                      <input type="number" min="0.01" step="0.01" max="250000" name="cardNome" ng-model="budgetCtrl.pmt.value" class="r_corners full_width">
-                    </li>
-                     <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5">Número de parcelas</label>
-                      <input type="number" name="cardNome" ng-model="budgetCtrl.pmt.instalments" class="r_corners full_width">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5">Beneficiário</label>
+                      <label for="cardNome" class="d_inline_b m_bottom_5">Proponente</label>
                       <input type="text" name="cardNome" ng-model="budgetCtrl.pmt.receiver" class="r_corners full_width">
                     </li>
                     <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5">CPF</label>
+                      <label for="cardNome" class="d_inline_b m_bottom_5">CPF/CNPJ</label>
                       <input type="text" name="cardNome" ng-model="budgetCtrl.pmt.cpf" class="r_corners full_width">
                     </li>
-                    <h5 class="fw_medium m_bottom_15">Dados do Cartão</h5>
                     <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5">Nome do Portador</label>
-                      <input type="text" name="cardNome" ng-model="budgetCtrl.pmt.card.name" class="r_corners full_width">
+                      <label for="cardNome" class="d_inline_b m_bottom_5 full_width">Data de vigência</label>
+                      <input type="month" name="datacard" ng-model="budgetCtrl.pmt.card.expDate" class="r_corners">
+                      até
+                      <input type="month" name="datacard" ng-model="budgetCtrl.pmt.card.expDate" class="r_corners ">
                     </li>
                     <li class="m_bottom_15">
-                      <label for="numcard" class="d_inline_b m_bottom_5">Número do Cartão</label>
-                      <input type="number" min="1000000000000000" max="9999999999999999" name="numcard" ng-model="budgetCtrl.pmt.card.card" class="r_corners full_width">
+                      <label for="cardNome" class="d_inline_b m_bottom_5">descrição do servico</label>
+                      <input type="text" name="cardNome" ng-model="budgetCtrl.pmt.cpf" class="r_corners full_width">
                     </li>
                     <li class="m_bottom_15">
-                      <label for="cardCVV" class="d_inline_b m_bottom_5">CVV</label>
-                      <input type="number" max="9999" name="cardCVV" ng-model="budgetCtrl.pmt.card.cvv" class="r_corners full_width">
+                      <label for="cardNome" class="d_inline_b m_bottom_5 full_width">Valor a Pagar</label>
+                      <input type="number" min="0.01" step="0.01" max="250000" name="cardNome" ng-model="budgetCtrl.pmt.value" class="r_corners">
                     </li>
                     <li class="m_bottom_15">
-                      <label for="datacard" class="d_inline_b m_bottom_5">Data de Validade</label>
-                      <input type="month" name="datacard" ng-model="budgetCtrl.pmt.card.expDate" class="r_corners full_width">
+                      <label for="cardNome" class="d_inline_b m_bottom_5 full_width">Número de parcelas</label>
+                      <input type="number" min="1" step="1" max="12" name="cardNome" ng-model="budgetCtrl.pmt.value" class="r_corners">
+                    </li
+                    <li class="m_bottom_15">
+                      <label for="datacard" class="d_inline_b m_bottom_5 full_width">Data de Validade</label>
+                      <input type="month" name="datacard" ng-model="budgetCtrl.pmt.card.expDate" class="r_corners">
+                    </li>
+                    <li class="m_bottom_15">
+                      <label for="cardNome" class="d_inline_b m_bottom_5">Observações</label>
+                      <input type="text" name="cardNome" ng-model="budgetCtrl.pmt.cpf" class="r_corners full_width">
                     </li>
                   </ul>
                 </form>
