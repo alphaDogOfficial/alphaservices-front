@@ -39,6 +39,7 @@ var cadastroCtrl = function (crudService, $state, $scope, $http, $localStorage, 
             .post('https://evening-dawn-47995.herokuapp.com/user', formData)
               .then((response) => {
                   alert("Afiliação realizada com sucesso!");
+                  vm.user.password = vm.user.senha;
                   vm.loginUser();
                 }, (err)=>{
                   console.log('err', err);
