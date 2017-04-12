@@ -7,16 +7,8 @@
     "start": "node server.js",
     "test": "webpack-dev-server --history-api-fallback --inline --progress --port 4000"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sauloxd/tradesports-front.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Sauloxd/tradesports-front/issues"
-  },
-  "homepage": "https://github.com/Sauloxd/tradesports-front#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.7",
     "babel": "^6.5.2",

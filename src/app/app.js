@@ -14,12 +14,13 @@ import navbarCtrl from './components/navbar/navbar.controller';
 import reviews from './pages/reviews'
 import myReviews from './pages/reviews-my'
 import finances from './pages/finances'
+import form from './pages/form'
 
 //Flatastic Imports
 
 const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [uirouter, modal, ngStorage, home, reviews, myReviews, finances, 'ngOpbeat', chart])
+angular.module(MODULE_NAME, [uirouter, modal, ngStorage, home, reviews, myReviews, finances, form, 'ngOpbeat', chart])
   .config(routing)
   .controller('navbarCtrl', navbarCtrl);
 

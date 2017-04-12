@@ -1,0 +1,54 @@
+<!--boxed layout-->
+<div class="wide_layout relative w_xs_auto">
+	<!--[if (lt IE 9) | IE 9]>
+		<div style="background:#fff;padding:8px 0 10px;">
+		<div class="container" style="width:1170px;"><div class="row wrapper"><div class="clearfix" style="padding:9px 0 0;float:left;width:83%;"><i class="fa fa-exclamation-triangle scheme_color f_left m_right_10" style="font-size:25px;color:#e74c3c;"></i><b style="color:#e74c3c;">Attention! This page may not display correctly.</b> <b>You are using an outdated version of Internet Explorer. For a faster, safer browsing experience.</b></div><div class="t_align_r" style="float:left;width:16%;"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode" class="button_type_4 r_corners bg_scheme_color color_light d_inline_b t_align_c" target="_blank" style="margin-bottom:2px;">Update Now!</a></div></div></div></div>
+	<![endif]-->
+	<!--markup header type 2-->
+
+  <div ng-include="'navbar.html'"></div>
+
+	<!--slider with banners-->
+	<!-- <div ng-include="'flexslider.html'"></div> -->
+	<!--content-->
+	<div class="page_content_offset">
+		<div class="container">
+			<!--banners-->
+			<!-- <div ng-include="'two-banner.html'"></div> -->
+			<div class="row clearfix">
+
+				<!-- <div ng-include="'filter-menu.html'"></div> -->
+				<section class="col-lg-12 col-md-12 col-sm-12">
+					<h2 class="tt_uppercase color_dark m_bottom_10 heading5">Formulário</h2>
+					<!--products-->
+              <form ng-submit="create(service_type, contract, value)">
+                  <div class="m_bottom_15">
+                    <label for="c_name_2" class="d_inline_b m_bottom_5">Tipo de Serviço</label> <br/>
+                    <div class="radio">  
+                      <label><input type="radio" ng-model="service_type" value="Jardinagem">Jardinagem</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										  <label><input type="radio" ng-model="service_type" value="Reformas">Reformas</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										  <label><input type="radio" ng-model="service_type" value="Eventos">Eventos</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                  </div>
+                  <div class="m_bottom_15">
+                    <label for="c_name_2" class="d_inline_b m_bottom_5">O que aconteceu com o orçamento?</label> <br/>
+                    <div class="radio">  
+                      <label><input type="radio" ng-model="contract" value="0">Não foi aceito</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <label><input type="radio" ng-model="contract" value="1">Virou contrato e não foi pago</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										  <label><input type="radio" ng-model="contract" value="2">Virou contrato e foi pago</label>
+                    </div>
+                  </div>
+                  <div class="m_bottom_15">
+                    <label for="c_name_2" class="d_inline_b m_bottom_5">Valor</label> <br/>
+                    <input type="number" ng-model="value" min="1">
+                  </div>
+              <button type="submit" class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-if="service_type && contract && value">Salvar</button>
+              <div class="alert alert-danger" role="alert" ng-if="!service_type || !contract || !value">Você precisa preencher o formulário</div>
+              </form>
+				</section>
+			</div>
+		</div>
+	</div>
+	<!--markup footer-->
+	<div ng-include="'footer.html'"></div>
+</div>
