@@ -4,11 +4,14 @@ var formController = function ($rootScope, crudService, $scope) {
   $rootScope.isReviewsActive = false;
   $rootScope.isFinancesActive = false;
   $rootScope.usFormActive = true;
+  $scope.creating = false;
+  $scope.created = false;
 
   $scope.create = create;
 
   function create(service_type, contract, value) {
   	var table;
+  	$scope.creating = true;
 
   	var dataBudget = {
       value: value,
@@ -19,38 +22,40 @@ var formController = function ($rootScope, crudService, $scope) {
 
     crudService.post("budget", dataBudget)
     	.then(function(response) {
-    		console.log(response)
     		if(contract >= 1) {
     			var dataContract = {
 			      value: value,
 			      budget: response.data.id,
 			      service_type: service_type,
 			      month: "Abr"
-			    }
+			    } 
 
-			    crudService.post("contracts", dataContract)
-			    	.then(function(response) {
-		    			console.log(response)
-		    			if(contract == 2) {
-		    				var dataRevenues = {
-						      value: value,
-						      contract: response.data.id,
-						      service_type: service_type,
-						      month: "Abr"
-						    }
+		    crudService.post("contracts", dataContract)
+		    	.then(function(response) {
+	    			if(contract == 2) {
+	    				var dataRevenues = {
+					      value: value,
+					      contract: response.data.id,
+					      service_type: service_type,
+					      month: "Abr"
+					    }
 
-						    crudService.post("revenues", dataRevenues)
-						    	.then(function(response) {
-						    		console.log(response)
-						    	})
-		    			}
-			    	})
-    		}
+					    crudService.post("revenues", dataRevenues)
+					    	.then(function(response) {
+									$scope.creating = false;
+					    		$scope.created = true;
+					    	})
+
+	    			} else {
+				    	$scope.creating = false;
+				    	$scope.created = true;
+				    }
+		    	})
+    		} else {
+		    	$scope.creating = false;
+		    	$scope.created = true;
+		    }
     	})
-  	// else if (contract == 1) 
-  	// 	table = "contracts"
-  	// else if(contract == 2)
-  	// 	table = "revenues"
   }
 	
 }

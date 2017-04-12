@@ -20,31 +20,32 @@
 				<!-- <div ng-include="'filter-menu.html'"></div> -->
 				<section class="col-lg-12 col-md-12 col-sm-12">
 					<h2 class="tt_uppercase color_dark m_bottom_10 heading5">Formulário</h2>
-					<!--products-->
-              <form ng-submit="create(service_type, contract, value)">
-                  <div class="m_bottom_15">
-                    <label for="c_name_2" class="d_inline_b m_bottom_5">Tipo de Serviço</label> <br/>
-                    <div class="radio">  
-                      <label><input type="radio" ng-model="service_type" value="Jardinagem">Jardinagem</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										  <label><input type="radio" ng-model="service_type" value="Reformas">Reformas</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										  <label><input type="radio" ng-model="service_type" value="Eventos">Eventos</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </div>
-                  </div>
-                  <div class="m_bottom_15">
-                    <label for="c_name_2" class="d_inline_b m_bottom_5">O que aconteceu com o orçamento?</label> <br/>
-                    <div class="radio">  
-                      <label><input type="radio" ng-model="contract" value="0">Não foi aceito</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <label><input type="radio" ng-model="contract" value="1">Virou contrato e não foi pago</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										  <label><input type="radio" ng-model="contract" value="2">Virou contrato e foi pago</label>
-                    </div>
-                  </div>
-                  <div class="m_bottom_15">
-                    <label for="c_name_2" class="d_inline_b m_bottom_5">Valor</label> <br/>
-                    <input type="number" ng-model="value" min="1">
-                  </div>
-              <button type="submit" class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-if="service_type && contract && value">Salvar</button>
-              <div class="alert alert-danger" role="alert" ng-if="!service_type || !contract || !value">Você precisa preencher o formulário</div>
-              </form>
+          <form ng-submit="create(service_type, contract, value)" ng-if="!created && !creating">
+              <div class="m_bottom_15">
+                <label for="c_name_2" class="d_inline_b m_bottom_5">Tipo de Serviço</label> <br/>
+                <div class="radio">  
+                  <label><input type="radio" ng-model="service_type" value="Jardinagem">Jardinagem</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								  <label><input type="radio" ng-model="service_type" value="Reformas">Reformas</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								  <label><input type="radio" ng-model="service_type" value="Eventos">Eventos</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+              </div>
+              <div class="m_bottom_15">
+                <label for="c_name_2" class="d_inline_b m_bottom_5">O que aconteceu com o orçamento?</label> <br/>
+                <div class="radio">  
+                  <label><input type="radio" ng-model="contract" value="0">Não foi aceito</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label><input type="radio" ng-model="contract" value="1">Virou contrato e não foi pago</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								  <label><input type="radio" ng-model="contract" value="2">Virou contrato e foi pago</label>
+                </div>
+              </div>
+              <div class="m_bottom_15">
+                <label for="c_name_2" class="d_inline_b m_bottom_5">Valor</label> <br/>
+                <input type="number" ng-model="value" min="1">
+              </div>
+            <button type="submit" class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-if="service_type && contract && value">Salvar</button>
+            <div class="alert alert-danger" role="alert" ng-if="!service_type || !contract || !value">Você precisa preencher o formulário</div>
+          </form>
+          <div class="alert alert-info" role="alert" ng-if="creating">Criando...</div>
+          <div class="alert alert-success" role="alert" ng-if="created">Criado com sucesso!</div>
 				</section>
 			</div>
 		</div>

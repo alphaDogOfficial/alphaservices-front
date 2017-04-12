@@ -90,7 +90,7 @@
             <tbody>
               <tr ng-repeat="item in items">
                 <td>R$ {{item.value}}</td>
-                <td ng-if="type == 'Orçamentos'">{{item.accepted == "true" ? 'Sim' : 'Não'}}</td>
+                <td ng-if="type == 'Orçamentos'">{{item.accepted ? 'Sim' : 'Não'}}</td>
                 <td>{{item.service_type}}</td>
                 <td>{{item.month}}</td>
               </tr>
