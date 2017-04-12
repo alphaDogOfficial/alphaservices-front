@@ -20,7 +20,7 @@ var myAccCtrl = function (crudService, $localStorage, $http,  $state) {
     $localStorage.currentUser.nome = vm.user.nome;
 
     var formData = {
-      name:vm.user.nome,
+      name:vm.user.name,
       login:vm.user.login,
       password:vm.user.senha,
       cpf:vm.user.cpf,

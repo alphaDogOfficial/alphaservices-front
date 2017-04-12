@@ -41,34 +41,7 @@
                 <button class="button_type_6 bg_scheme_color f_size_large f_right r_corners tr_all_hover color_light m_bottom_20" ng-click="accVm.saveUserData()">Salvar</button>
               </div>
             </div>
-
-           
-
           </div>
-
-          <div class="bs_inner_offsets bg_light_color_3 shadow r_corners m_bottom_45">
-            <div class="row clearfix">
-              <div class="col-lg-12 col-md-12 col-sm-12">
-                <h5 class="fw_medium m_bottom_15">Minhas compras</h5>
-                  <div ng-repeat="compra in accVm.compras">
-                    <p>
-                      <strong>Compra{{compra[0].idcompra}}</strong>
-                    </p>
-                    <p ng-if="compra[0].estado == 0" style="color: red">
-                      Ainda não entregue!
-                    </p>
-                    <p ng-if="compra[0].estado == 1" style="color: green">
-                      Produto entregue aos correios
-                    </p>
-                    <p>
-                      Valor Total : <strong>{{compra[0].valor}}</strong>
-                    </p>
-                  
-                  </div>
-              </div>
-            </div>
-          </div>
-
 	       </section>
 				<!--right column-->
 			</div>
