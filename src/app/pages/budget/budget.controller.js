@@ -5,52 +5,61 @@ var budgetCtrl = function (crudService, $state, $scope, $http) {
   vm.user = {};
   vm.isLoginOk = true;
   vm.isCpfOk = true;
-  vm.showCard = false;
-  // $http.get('http://alpha-budget-backend.herokuapp.com/budget').then((response) =>  {
-  //   vm.myBudgets = response.data
-  // });
+  vm.isDisabled = false;
+  vm.today = new Date()
 
-  vm.empreiteiros = [
-    {name: 'Empreiteiro 1'},
-    {name: 'Empreiteiro 1'},
-    {name: 'Empreiteiro 1'},
-    {name: 'Empreiteiro 1'},
-    {name: 'Empreiteiro 1'},
-    {name: 'Empreiteiro 1'}
-  ]
+  $http.get('http://alpha-contract-backend.herokuapp.com/budget?userType=Fornecedor').then((response) =>  {
+    vm.empreiteiros = response.data
+  });
 
-  vm.clientes = [
-    {name: 'Cliente 1'},
-    {name: 'Cliente 1'},
-    {name: 'Cliente 1'},
-    {name: 'Cliente 1'},
-    {name: 'Cliente 1'},
-    {name: 'Cliente 1'}
-  ]
-    $scope.states = ('Integrador Fornecedor').split(' ').map(function(state) {
-        return {abbrev: state};
-      });
+  $http.get('http://alpha-contract-backend.herokuapp.com/budget?userType=Integrador').then((response) =>  {
+    vm.clientes = response.data
+  });
+
+  $scope.states = ('Integrador Fornecedor').split(' ').map(function(state) {
+    return {abbrev: state};
+  });
 
   vm.processNewBudget = function () {
-    if (vm.card == null) {
-      vm.card = false;
+    vm.isDisabled = true;
+    var formData = vm.params;
+    console.log(formData);
+    if(formData != null ) {
+      var jsonData = JSON.stringify(formData);
+      if(!vm.verifyObject(formData)) {
+        if(vm.params.userType == 'Integrador') {
+          $http.post('http://alpha-contract-backend.herokuapp.com/budget', jsonData)
+          .then((response)=>  {
+              vm.isDisabled = false;
+              alert("Orçamento gerado com sucesso!");
+              $state.go('home');
+          });
+        } else {
+          $http.post('http://alpha-contract-backend.herokuapp.com/budget', jsonData)
+          .then((response)=>  {
+              vm.isDisabled = false;
+              alert("Orçamento gerado com sucesso!");
+              $state.go('home');
+          });
+        }
+       } else {
+        vm.isDisabled = false;
+        alert("Erro na submissão das informações");
+      }
+    } else {
+      vm.isDisabled = false;
+      alert("Erro na submissão das informações");
     }
-    var formData = vm.card;
-    console.log(vm.card);
-    // if(!vm.verifyObject(formData)) {
-    //   $http.post('http://alpha-contract-backend.herokuapp.com/contract', jsonData)
-    //     .then((response)=>  {
-    //       alert("Contrato gerado com Sucesso!");
-    //       $state.go('myContracts');
-    //     });
-    //  } else {
-    //   alert("Selecione o checkbox");
-    // }
   }
 
   vm.verifyObject = function (target) {
-    if (target == null || target == false) {
+    if (target == null) {
       return true
+    }
+
+    for (var member in target) {
+        if (target[member] == null)
+            return true;
     }
 
     return false;

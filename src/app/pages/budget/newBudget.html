@@ -13,52 +13,70 @@
             <div class="row clearfix">
               <div class="col-lg-12 col-md-12 col-sm-12">
                 <h5 class="fw_medium m_bottom_15">Dados do Orçamento</h5><br>
-                <label for="cardNome" class="d_inline_b m_bottom_5">Quem está fazendo o orçamento?</label><br>
-                <select name="repeatSelect" id="repeatSelect" ng-model="data.model">
-                  <option ng-repeat="option in states" value="{{option.abbrev}}">{{option.abbrev}}</option>
-                </select><br><br>
-                <form>
+                <form name="userForm" novalidate>
                   <ul>
-                    <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5">Proponente</label>
-                      <input type="text" name="cardNome" ng-model="budgetCtrl.pmt.receiver" class="r_corners full_width">
+                    <li class="m_bottom_15" ng-class="{ 'has-error' : userForm.repeatSelect.$invalid && !userForm.repeatSelect.$pristine }">
+                      <label for="budgetName" class="d_inline_b m_bottom_5">Quem está fazendo o orçamento?</label><br>
+                      <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="budgetCtrl.params.userType" required>
+                        <option ng-repeat="option in states" value="{{option.abbrev}}">{{option.abbrev}}</option>
+                      </select>
+                      <p ng-show="userForm.repeatSelect.$invalid && !userForm.repeatSelect.$pristine" class="help-block">Selecione uma opção.</p>
+                    </li>
+                    <li class="m_bottom_15" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                      <label for="budgetName" class="d_inline_b m_bottom_5">Serviço</label>
+                      <input type="text" name="name" ng-model="budgetCtrl.params.name" class="r_corners full_width form-control" required>
+                      <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Serviço é obrigatório.</p>
+                    </li>
+                    <li class="m_bottom_15" ng-class="{ 'has-error' : userForm.receiver.$invalid && !userForm.receiver.$pristine }">
+                      <label for="budgetName" class="d_inline_b m_bottom_5">Proponente</label>
+                      <input type="text" name="receiver" ng-model="budgetCtrl.params.receiver" class="r_corners full_width form-control" required>
+                      <p ng-show="userForm.receiver.$invalid && !userForm.receiver.$pristine" class="help-block">Proponente é obrigatório.</p>
+                    </li>
+                    <li class="m_bottom_15" ng-class="{ 'has-error' : userForm.cpf.$invalid && !userForm.cpf.$pristine }">
+                      <label for="budgetName" class="d_inline_b m_bottom_5">CPF/CNPJ</label>
+                      <input type="text" name="cpf" ng-model="budgetCtrl.params.cpf" class="r_corners full_width form-control" ui-br-cpf-mask required>
+                       <p ng-show="userForm.cpf.$invalid && !userForm.cpf.$pristine" class="help-block">CPF Inválido.</p>
                     </li>
                     <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5">CPF/CNPJ</label>
-                      <input type="text" name="cardNome" ng-model="budgetCtrl.pmt.cpf" class="r_corners full_width">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5 full_width">Data de vigência</label>
-                      <input type="month" name="datacard" ng-model="budgetCtrl.pmt.card.expDate" class="r_corners">
+                      <label for="budgetName" class="d_inline_b m_bottom_5 full_width">Data de vigência</label>
+                      <input type="date" name="period.ini" ng-model="budgetCtrl.params.period.ini" class="r_corners" required>
+                      <p ng-show="userForm.period.ini.$invalid && !userForm.period.ini.$pristine" class="help-block">Data inválida.</p>
                       até
-                      <input type="month" name="datacard" ng-model="budgetCtrl.pmt.card.expDate" class="r_corners ">
+                      <input type="date" max="2020-12-31" min=budgetCtrl.today name="period.end" ng-model="budgetCtrl.params.period.end" class="r_corners " required>
+                      <p ng-show="userForm.period.end.$invalid && !userForm.period.end.$pristine" class="help-block">Data inválida.</p>
+                    </li>
+                    <li class="m_bottom_15" ng-class="{ 'has-error' : userForm.description.$invalid && !userForm.description.$pristine }">
+                      <label for="budgetName" class="d_inline_b m_bottom_5">descrição do servico</label>
+                      <input type="text" name="description" ng-model="budgetCtrl.params.description" class="r_corners full_width form-control" required>
+                      <p ng-show="userForm.description.$invalid && !userForm.description.$pristine" class="help-block">Descrição do serviço é obrigatório.</p>
+                    </li>
+                    <li class="m_bottom_15" ng-class="{ 'has-error' : userForm.value.$invalid && !userForm.value.$pristine }">
+                      <label for="budgetName" class="d_inline_b m_bottom_5 full_width ">Valor a Pagar</label>
+                      <input type="text" min="0" step="0.01" max="25000000" name="value" ng-model="budgetCtrl.params.value" ui-money-mask="2" currency-symbol="R$" class="r_corners" required>
+                      <p ng-show="userForm.value.$invalid && !userForm.value.$pristine" class="help-block">Valor inválido.</p>
+                    </li>
+                    <li class="m_bottom_15" ng-class="{ 'has-error' : userForm.parcel.$invalid && !userForm.parcel.$pristine }">
+                      <label for="budgetName" class="d_inline_b m_bottom_5 full_width">Número de parcelas</label>
+                      <input type="number" min="0" step="1" max="12" name="parcel" ng-model="budgetCtrl.params.parcel" class="r_corners" required>
+                      <p ng-show="userForm.parcel.$invalid && !userForm.parcel.$pristine" class="help-block">Selecione um valor.</p>
                     </li>
                     <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5">descrição do servico</label>
-                      <input type="text" name="cardNome" ng-model="budgetCtrl.pmt.cpf" class="r_corners full_width">
+                      <label for="budgetName" class="d_inline_b m_bottom_5 full_width">Data de Validade</label>
+                      <input type="date" name="period.valid" ng-model="budgetCtrl.params.period.valid" class="r_corners" required>
+                      <p ng-show="userForm.period.valid.$invalid && !userForm.period.valid.$pristine" class="help-block">Data inválida.</p>
                     </li>
-                    <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5 full_width">Valor a Pagar</label>
-                      <input type="number" min="0.01" step="0.01" max="250000" name="cardNome" ng-model="budgetCtrl.pmt.value" class="r_corners">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5 full_width">Número de parcelas</label>
-                      <input type="number" min="1" step="1" max="12" name="cardNome" ng-model="budgetCtrl.pmt.value" class="r_corners">
-                    </li
-                    <li class="m_bottom_15">
-                      <label for="datacard" class="d_inline_b m_bottom_5 full_width">Data de Validade</label>
-                      <input type="month" name="datacard" ng-model="budgetCtrl.pmt.card.expDate" class="r_corners">
-                    </li>
-                    <li class="m_bottom_15">
-                      <label for="cardNome" class="d_inline_b m_bottom_5">Observações</label>
-                      <input type="text" name="cardNome" ng-model="budgetCtrl.pmt.cpf" class="r_corners full_width">
+                    <li class="m_bottom_15" ng-class="{ 'has-error' : userForm.observations.$invalid && !userForm.observations.$pristine }">
+                      <label for="budgetName" class="d_inline_b m_bottom_5 full_width">Observações</label>
+                      <input type="text" name="observations" ng-model="budgetCtrl.params.observations" class="r_corners full_width form-control" required>
+                      <p ng-show="userForm.observations.valid.$invalid && !userForm.observations.valid.$pristine" class="help-block">Observações não pode ser vazio.</p>
                     </li>
                   </ul>
                 </form>
               </div>
             </div>
-
           </div>
+          <button class="button_type_6 bg_scheme_color f_size_large f_middle r_corners tr_all_hover color_light m_bottom_20" ng-click="budgetCtrl.processNewBudget()" ng-disabled="budgetCtrl.isDisabled">Enviar</button>
+           <button class="button_type_6 bg_scheme_color f_size_large f_middle r_corners tr_all_hover color_light m_bottom_20" ui-sref="home">Voltar</button>
          </section>
         <!--right column-->
       </div>

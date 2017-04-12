@@ -14,7 +14,8 @@
             <thead>
               <tr class="f_size_large">
                 <!--titles for td-->
-                <th style="width: 80%;">Empreiteiros</th>
+                <th style="width: 60%;">Empreiteiros</th>
+                <th style="width: 20%;">Validade do orçamento</th>
                 <th>Detalhes</th>
               </tr>
             </thead>
@@ -23,6 +24,10 @@
                 <td>
                   <p class="fw_medium f_size_large
                     color_dark">{{empreiteiro.name}}</p>
+                </td>
+                <td>
+                  <p class="fw_medium f_size_large
+                    color_dark"><mydate>{{empreiteiro.period.valid | date:'dd-MM-yyyy'}}</mydate></p>
                 </td>
                 <td>
                   <a ui-sref="detailBudgets({id: $index})"> ver mais detalhes </a>
