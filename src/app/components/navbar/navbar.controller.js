@@ -16,7 +16,7 @@ var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, au
       controllerAs: 'login',
       size: 'md'
     });
-  };
+  }
 
   vm.openSignup = function () {
     var modalInstance = $uibModal.open({
@@ -38,42 +38,10 @@ var navbarCtrl = function ($rootScope, crudService, $uibModal, $localStorage, au
     if(vm.isLogged = !!$localStorage.currentUser) {
       $state.go('minha-conta');
     } else {
-      var modalInstance = $uibModal.open({
-        animation: true,
-        templateUrl: 'login.html',
-        controller: 'loginCtrl',
-        controllerAs: 'login',
-        size: 'md'
-      });
-    }
+        alert("Você não está logado.");
+        $state.go("home");
+    }  
   }
-
-  vm.filter = function(genero, tipo) {
-    var data = {}
-    data.genero = [genero]
-    data.tipo = [tipo]
-    crudService.getWithFilter('produto', data)
-      .then(function(response) {
-        $rootScope.$emit('rootScope:newProducts', response.data);
-      }, function(err) {
-        console.log('error', err)
-      })
-  }
-
-  vm.search = function() {
-    if(vm.searchName === undefined) {
-      vm.searchName = 't'
-    }
-    crudService.getByName('produto', vm.searchName)
-      .then(function(response) {
-        $rootScope.$emit('rootScope:newProducts', response.data)
-        vm.searchName = undefined
-      }, function(err) {
-        console.log('error', err)
-        vm.searchName = undefined
-      })
-  }
-
 }
 
 export default navbarCtrl;
