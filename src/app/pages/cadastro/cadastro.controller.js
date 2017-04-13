@@ -39,7 +39,7 @@ var cadastroCtrl = function (crudService, $state, $scope, $http, $localStorage, 
             .post('https://evening-dawn-47995.herokuapp.com/user', formData)
               .then((response) => {
                   alert("Afiliação realizada com sucesso!");
-                  emailjs.send("gmail", "template_yWmbdbLX", {"login": vm.user.login,"password": vm.user.senha,"to_name":vm.user.nome});
+                  emailjs.send("gmail", "template_yWmbdbLX", {"email": vm.user.email, "login": vm.user.login,"password": vm.user.senha,"to_name":vm.user.nome});
                   vm.user.password = vm.user.senha;
                   vm.loginUser();
                 }, (err)=>{
